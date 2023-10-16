@@ -1,4 +1,11 @@
 # https://github.com/kunal-kushwaha/DSA-Bootcamp-Java/blob/main/assignments/09-patterns.md
+'''
+3.  *****
+    ****
+    ***
+    **
+    *
+'''
 
 def pattern3(n):
     pattern = ''
