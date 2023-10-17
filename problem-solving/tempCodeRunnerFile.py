@@ -1,2 +1,1 @@
-
-    linked_list.insert_beginning(i)
+print(f"row = {col_counter}, space = {spaces}")
