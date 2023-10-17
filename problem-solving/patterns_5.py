@@ -18,7 +18,8 @@ def pattern5(n):
     col_counter = 1
     for row in range(num_rows):        
         for column in range(col_counter):        
-            pattern += '*'        
+            pattern += '* '
+        pattern = pattern.rstrip()        
         pattern += '\n'
         
         # put pen on paper to understand this
