@@ -22,7 +22,7 @@ def pattern31(n):
             # atEveryIndex = min(min(row, col), min(n-row, n-col))
 
             # print this pattern to get the inverted solution to above 
-            atEveryIndex = original_n - min(min(row, col), min(n-row, n-col))
+            # atEveryIndex = original_n - min(min(row, col), min(n-row, n-col))
 
             # This is the solution
             atEveryIndex = original_n - min(min(row, col), min(n-row, n-col))
