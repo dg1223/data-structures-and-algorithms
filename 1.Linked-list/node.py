@@ -4,12 +4,12 @@ class Node:
         self.next_node = next_node
         
     # getter method: redundant, can delete
-    def get_value(self):
-        return self.value
+    # def get_value(self):
+    #     return self.value
     
     # getter method: redundant, can delete
-    def get_next_node(self):
-        return self.next_node
+    # def get_next_node(self):
+    #     return self.next_node
     
     # setter
     def set_next_node(self, next_node):
