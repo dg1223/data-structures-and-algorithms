@@ -1,1 +1,1 @@
-This repository currently contains implementations of basic data structures and algorithms from scratch.
+### This repository contains implementations of basic data structures and algorithms.
