@@ -24,7 +24,7 @@ class Hashmap:
         if not key_val:
             self.array[index] = [key, value]
             return
-        elif self.array[index][0] == key:
+        elif key_val[0] == key:
             self.array[index][1] == value
             return
         # collision
