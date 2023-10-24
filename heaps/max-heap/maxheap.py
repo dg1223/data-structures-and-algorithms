@@ -36,9 +36,9 @@ class MaxHeap:
         print("Heapifying up")
         # the element that was added is the last element
         index = self.count
+        parent_index = self.parent_index(index)
 
-        while self.parent_index(index) > 0: # index 0 has None
-            parent_index = self.parent_index(index)
+        while parent_index > 0: # index 0 has None
             parent = self.heap_list[parent_index]
             child = self.heap_list[index]
             if parent < child:
@@ -47,6 +47,8 @@ class MaxHeap:
                 self.heap_list[index] = parent
                 print(f"current heap list: {self.heap_list}\n")
             index = parent_index
+            parent_index = self.parent_index(index)
+            
         print("HEAP RESTORED! {0}".format(self.heap_list))
 
 # test
