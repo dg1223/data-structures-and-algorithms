@@ -1,7 +1,16 @@
 class MaxHeap:
-    def __init__(self):
-        self.heap_list = [None]
-        self.count = 0
+    def __init__(self, heap_list=None):
+        # add sentinel value if not initially added 
+        if heap_list and heap_list[0] != None:
+            self.heap_list = [None]
+            self.heap_list += heap_list
+        else:
+            self.heap_list = heap_list
+
+        if not heap_list:
+            self.count = 0
+        else:
+            self.count = len(self.heap_list) - 1
 
     def parent_index(self, index):
         return index // 2
@@ -19,7 +28,7 @@ class MaxHeap:
         reorder the heap
         '''
         self.count += 1
-        print("Adding: {0} to {1}".format(element, self.heap_list))
+        print("Adding {0} to {1}\n".format(element, self.heap_list))
         self.heap_list.append(element)
         self.heapify_up()
 
@@ -27,15 +36,29 @@ class MaxHeap:
         print("Heapifying up")
         # the element that was added is the last element
         index = self.count
-        parent_index = self.parent_index(index)
-        parent = self.heap_list[parent_index]
-        child = self.heap_list[index]
 
-        while parent_index > 0: # index 0 has None
+        while self.parent_index(index) > 0: # index 0 has None
+            parent_index = self.parent_index(index)
+            parent = self.heap_list[parent_index]
+            child = self.heap_list[index]
             if parent < child:
                 print(f"swapping {parent} with {child}")
                 self.heap_list[parent_index] = child
                 self.heap_list[index] = parent
+                print(f"current heap list: {self.heap_list}\n")
             index = parent_index
         print("HEAP RESTORED! {0}".format(self.heap_list))
 
+# test
+heap_list = [99, 22, 61, 10, 21, 13, 23]
+max_heap = MaxHeap(heap_list)
+print(f"initial heap list: {max_heap.heap_list}")
+print(f"intial count = {max_heap.count}\n")
+
+#print("the parent index of 4 is:")
+#print(max_heap.parent_index(4))
+
+#print("the left child index of 3 is:")
+#print(max_heap.left_child_index(3))
+
+max_heap.add(90)
