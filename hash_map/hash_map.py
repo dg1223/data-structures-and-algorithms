@@ -1,6 +1,6 @@
 # open addressing with linear probing
 class Hashmap:
-    def __init__(self, array_size):
+    def __init__(self, array_size=10):
         self.array_size = array_size
         self.array = [None] * array_size
 
