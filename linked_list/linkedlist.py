@@ -19,7 +19,7 @@ class LinkedList:
             current_node_value = current_node.value
             if current_node_value is not None:
                 string += str(current_node_value) + "\n"
-            current_node = current_node.get_next_node()
+            current_node = current_node.next_node
         
         return string
 

@@ -17,9 +17,16 @@ class LinkedList:
         string = ""
         current_node = self.head
         while current_node:
-            string += str(current_node.value) + "\n"
-            current_node = current_node.next
-        print(string)
+            print(f"current node: {current_node.value}")
+            # Skip printing nodes that were removed
+            if current_node.value != None:
+                string += str(current_node.value) + "\n"
+                current_node = current_node.next
+        '''        
+        Don't print here. Otherwise, the script that calls
+        this function will print None in the output
+        '''
+        return string
 
     # remove node with the 1st occurence of target value
     def remove_node(self, value):
@@ -58,6 +65,6 @@ ll.insert_beginning(70)
 ll.insert_beginning(5675)
 ll.insert_beginning(70)
 print(ll.stringify())
-ll.remove_nodes_with_same_value(70)
-print(ll.stringify())
+#ll.remove_nodes_with_same_value(70)
+#print(ll.stringify())
         
