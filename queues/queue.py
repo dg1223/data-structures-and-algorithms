@@ -1,7 +1,7 @@
 from node import Node
 
 class Queue:
-    def __init__(self, limit=None):
+    def __init__(self, limit=1000):
         self.head = None
         self.tail = None
         self.size = 0
