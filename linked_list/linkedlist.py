@@ -2,16 +2,16 @@ from node import Node
 
 class LinkedList:
     def __init__(self, value=None):
-        self.head_node = Node(value)
+        self.head = Node(value)
 
     def insert_beginning(self, new_value):
         new_node = Node(new_value)
-        new_node.set_next_node(self.head_node)
-        self.head_node = new_node
+        new_node.set_next_node(self.head)
+        self.head = new_node
 
     def stringify_list(self):
         string = ""
-        current_node = self.head_node
+        current_node = self.head
         if not current_node:
             print("Linked list is empty")
         
@@ -25,11 +25,11 @@ class LinkedList:
 
     # remove the first node that contains the target value
     def remove_node(self, value_to_remove):
-        current_node = self.head_node
+        current_node = self.head
 
         # if target value is in head node
         if current_node and current_node.value == value_to_remove:
-            self.head_node = current_node.next_node
+            self.head = current_node.next_node
             return
         
         # current node starts with being the head node
@@ -42,12 +42,12 @@ class LinkedList:
 
     # remove all nodes that contain the target value
     def remove_nodes_with_same_value(self, value_to_remove):
-        current_node = self.head_node
+        current_node = self.head
 
         # head node and its subsequent node(s) have target value
         while current_node and current_node.value == value_to_remove:
-            self.head_node = current_node.next_node
-            current_node = self.head_node
+            self.head = current_node.next_node
+            current_node = self.head
 
         while current_node:
             next_node = current_node.next_node
