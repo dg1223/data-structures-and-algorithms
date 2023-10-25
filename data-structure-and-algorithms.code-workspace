@@ -4,5 +4,29 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"diffEditor.experimental.showEmptyDecorations": false,
+		"editor.acceptSuggestionOnCommitCharacter": false,
+		"editor.acceptSuggestionOnEnter": "off",
+		"editor.autoClosingBrackets": "never",
+		"editor.autoClosingDelete": "never",
+		"editor.autoClosingOvertype": "never",
+		"editor.autoClosingQuotes": "never",
+		"editor.autoIndent": "none",
+		"editor.autoSurround": "never",
+		"editor.bracketPairColorization.enabled": false,
+		"editor.colorDecorators": false,
+		"editor.comments.insertSpace": false,
+		"editor.copyWithSyntaxHighlighting": false,
+        "editor.detectIndentation": false,
+        "editor.dragAndDrop": true,
+        "editor.emptySelectionClipboard": false,
+        "editor.guides.bracketPairsHorizontal": false,
+        "editor.guides.highlightActiveBracketPair": false,
+        "editor.guides.highlightActiveIndentation": false,
+        "editor.guides.indentation": false,
+        "editor.inlayHints.enabled": "off",
+        "editor.inlineSuggest.enabled": false,
+        "editor.suggest.showInlineDetails": false
+	}
 }
