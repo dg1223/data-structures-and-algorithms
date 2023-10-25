@@ -23,7 +23,7 @@ for index, item in enumerate(_list):
 print()
 
 # remove items
-_list.remove(4) # removes 1st occurance of 4
+_list.remove(4) # removes 1st occurence of 4
 del _list[0] # removes item at index 0
 print(f"_list: {_list}\n")
 

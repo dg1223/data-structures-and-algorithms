@@ -24,7 +24,7 @@ for index, item in enumerate(lst):
     print(f"{index}: {item}")
 
 # remove items by value
-# -> removes 1st occurance of value
+# -> removes 1st occurence of value
 lst.remove(4)
 print(f"list after removing 4: {lst}")
 
