@@ -34,7 +34,7 @@ class MinHeap:
         index = self.count
         parent_index = self.parent_index(index)
 
-        while parent_index > 0: # index 0 has None
+        while parent_index >= 0: # index 0 has None
             parent = self.heap_list[parent_index]
             child = self.heap_list[index]
             if parent > child:
@@ -42,9 +42,10 @@ class MinHeap:
                 self.heap_list[parent_index] = child
                 self.heap_list[index] = parent
                 print(f"current heap list: {self.heap_list}\n")
-            index = parent_index
-            parent_index = self.parent_index(index)
-            
+                index = parent_index
+                parent_index = self.parent_index(index)
+            else:
+                break            
         print("HEAP RESTORED! {0}".format(self.heap_list))
 
 # test
