@@ -9,13 +9,13 @@ class MaxHeap:
             self.count = len(self.heap_list) - 1
 
     def parent_index(self, index):
-        return index // 2
+        return (index-1) // 2
 
     def left_child_index(self, index):
-        return index * 2
+        return (index * 2) + 1
 
     def right_child_index(self, index):
-        return (index * 2) + 1
+        return (index * 2) + 2
 
     def add(self, element):
         '''
