@@ -2,8 +2,8 @@
 BST methods:
 initialize, insert, search value, dfs traversal
 
-*No need to learn  to remove a node from a BST
-as we usually use it to search for a value
+*No need to learn to remove a node from a BST.
+We generally use it to search for a value.
 '''
 class BST:
     def __init__(self, value, depth=0):
