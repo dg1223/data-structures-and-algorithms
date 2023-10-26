@@ -1,12 +1,3 @@
-'''
-BST methods:
-initialize, insert, search value, dfs traversal
--> if value_to_add == parent_node, add it to 
-   the right child
-
-*No need to learn to remove a node from a BST.
-We generally use it to search for a value.
-'''
 class BST:
     def __init__(self, value, depth=0):
         self.value = value
@@ -16,42 +7,35 @@ class BST:
 
     def insert(self, value):
         if value < self.value:
-            if self.left is None:
-                self.left = BST(value, self.depth+1)
+            if not self.left:
+                self.left = BST(value, self.depth + 1)
                 print(f'Tree node {value} added to the left of {self.value} at depth {self.depth + 1}')
             else:
-                # iterate because current node has value
                 self.left.insert(value)
-        elif value > self.value:
-            if self.right is None:
-                self.right = BST(value, self.depth+1)
+        else:
+            if not self.right:
+                self.right = BST(value, self.depth + 1)
                 print(f'Tree node {value} added to the right of {self.value} at depth {self.depth + 1}')
             else:
-                self.right.insert(value)        
-        #This condition seems to fail in checking whether a right node exists,
-        #It could be omitted and the previous elif can just be an else statement.
-        #See practice copy for this modified approach.
-        else:
-            self.right.insert(value)
+                self.right.insert(value)
 
     def get_node_by_value(self, value):
         if value == self.value:
             return self
+        # must check if left and right nodes exist
         elif self.left and value < self.value:
             self.left.get_node_by_value(value)
         elif self.right and value >= self.value:
             self.right.get_node_by_value(value)
         else:
-            return None
+            return "Value not found in tree"
 
-    def traverse_dfs(self):
+    def dfs_traversal(self):
         if self.left:
-            self.left.traverse_dfs()
-        print(f"Depth = {self.depth}, Value = {self.value}")
+            self.left.dfs_traversal()
+        print(f"Depth: {self.depth}, Value: {self.value}")
         if self.right:
-            self.right.traverse_dfs()
-
-
+            self.right.dfs_traversal()
 
 root = BST(100)
 
@@ -65,4 +49,4 @@ tree.insert(56)
 tree.insert(74)
 
 # Print depth-first traversal:
-tree.traverse_dfs()
+tree.dfs_traversal()
