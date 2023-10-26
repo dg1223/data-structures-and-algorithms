@@ -27,7 +27,7 @@ class Hashmap:
             return
         # same key
         elif key_val[0] == key:
-            self.array[index][1] = value
+            self.array[index][1] == value
             return
         # collision
         else:
