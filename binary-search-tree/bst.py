@@ -1,6 +1,8 @@
 '''
 BST methods:
 initialize, insert, search value, dfs traversal
+-> if value_to_add == parent_node, add it to 
+   the right child
 
 *No need to learn to remove a node from a BST.
 We generally use it to search for a value.
@@ -18,6 +20,7 @@ class BST:
                 self.left = BST(value, self.depth+1)
                 print(f'Tree node {value} added to the left of {self.value} at depth {self.depth + 1}')
             else:
+                # iterate because current node has value
                 self.left.insert(value)
         elif value > self.value:
             if self.right is None:
