@@ -1,13 +1,9 @@
 class MinHeap:
     def __init__(self, heap_list=None):
-        # add sentinel value if not initially added 
-        if heap_list and heap_list[0] != None:
-            self.heap_list = [None]
-            self.heap_list += heap_list
-        else:
-            self.heap_list = heap_list
+        self.heap_list = heap_list
 
         if not heap_list:
+            self.heap_list = []
             self.count = 0
         else:
             self.count = len(self.heap_list) - 1
