@@ -21,9 +21,11 @@ class Hashmap:
         index = self.calculate_index(key)
         key_val = self.array[index]
 
+        # index out of bounds
         if not key_val:
             self.array[index] = [key, value]
             return
+        # same key
         elif key_val[0] == key:
             self.array[index][1] == value
             return
@@ -46,10 +48,13 @@ class Hashmap:
         index = self.calculate_index(key)
         retrieval_key_val = self.array[index]
 
+        # the key is not found in the hashmap
         if not retrieval_key_val:
             return "Key not found in hash map"
+        # key matches, retrieve value
         elif retrieval_key_val[0] == key:
             return retrieval_key_val[1]
+        # different key, it's a collision
         else:
             collisions = 1
             while retrieval_key_val[0] != key:
