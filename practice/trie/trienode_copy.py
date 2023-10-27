@@ -9,4 +9,7 @@ class Trienode:
         if char not in self.nodes:
             # every character is a node in the trie
             self.nodes[char] = Trienode()
+        # we need to return the node so that when we
+        # add a string to the trie, we can keep moving
+        # forward from node to node. See Trie class
         return self.nodes[char]
