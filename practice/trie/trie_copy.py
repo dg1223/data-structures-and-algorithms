@@ -1,7 +1,10 @@
 # stores strings that are made up of chars (nodes)
+
+from trienode_copy import Trienode
+
 class Trie:
     def __init__(self):
-        self.root = Trie()
+        self.root = Trienode()
 
     def add_string(self, string):
         current_node = self.root
