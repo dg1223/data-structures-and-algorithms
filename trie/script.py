@@ -1,5 +1,5 @@
-from trienode_copy import Trienode
-from trie_copy import Trie
+from trienode import Trienode
+from trie import Trie
 
 trie = Trie()
 
