@@ -1,3 +1,4 @@
+# each node stores a character
 class Trienode:
     def __init__(self):
         self.nodes = {}
