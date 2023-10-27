@@ -1,8 +1,7 @@
-from trienode import Trienode
-
+# stores strings that are made up of chars (nodes)
 class Trie:
     def __init__(self):
-        self.root = Trienode()
+        self.root = Trie()
 
     def add_string(self, string):
         current_node = self.root
@@ -26,4 +25,4 @@ class Trie:
                 return 0
             current_node = current_node.nodes[char]
         return current_node.freq
-            
+                
