@@ -1,3 +1,10 @@
+'''
+Algorithm:
+    divide
+    sort
+    merge
+'''
+
 def merge_sort(items):
     length = len(items)
     if length <= 1:
