@@ -9,7 +9,7 @@ def heapsort(items):
         minheap.add(item)
 
     print(f"min-heap: {minheap.heaplist}")
-    while minheap.count > 0:
+    while minheap.position > 0:
         min_value = minheap.retrieve_min()
         sorted_list.append(min_value)
 
