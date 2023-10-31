@@ -1,4 +1,4 @@
-# Heap sort using min-heap
+# Priority queue using min-heap
 
 class MinheapQ:
     def __init__(self, heaplist=None):
