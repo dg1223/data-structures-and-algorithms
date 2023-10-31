@@ -83,6 +83,7 @@ class MinheapQ:
             else:
                 return left_child_index
 
+'''
 # test
 heaplist = [10, 13, 21, 22, 23, 61, 99]
 min_heap = MinheapQ(heaplist)
@@ -93,3 +94,4 @@ print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
+'''
