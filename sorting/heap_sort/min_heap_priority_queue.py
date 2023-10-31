@@ -1,5 +1,10 @@
 # Priority queue using min-heap
 
+'''
+Note: Any index comparison with position/item count
+      is against (count - 1)
+'''
+
 class MinheapQ:
     def __init__(self, heaplist=None):
         if not heaplist:
@@ -19,7 +24,7 @@ class MinheapQ:
         return (index * 2) + 2
 
     def child_present(self, index):
-        return self.left_child_index(index) < self.count
+        return self.left_child_index(index) <= self.count - 1
 
     # add() and heapify_up() not required if not adding anything to list
     def add(self, value):
@@ -47,8 +52,8 @@ class MinheapQ:
             print("No items in heap")
             return
 
-        last_index = self.count - 1
         min_value = self.heaplist[0]
+        last_index = self.count - 1        
         self.heaplist[0] = self.heaplist[last_index]
         self.heaplist.pop()
         self.count -= 1
