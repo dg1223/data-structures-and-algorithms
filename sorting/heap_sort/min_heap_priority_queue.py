@@ -32,10 +32,7 @@ class MinheapQ:
         index = self.count - 1
         parent_index = self.parent_index(index)
 
-        '''
-        While adding items to an empty list, the first element
-        aka the root does not have any children. So, we skip it.
-        ''' 
+        # heapify up to the root
         while parent_index >= 0:
             parent = self.heaplist[parent_index]
             child = self.heaplist[index]
