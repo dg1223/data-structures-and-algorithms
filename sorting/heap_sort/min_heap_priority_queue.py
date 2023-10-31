@@ -22,7 +22,6 @@ class MinheapQ:
         return self.left_child_index(index) <= self.count
 
     # add() and heapify_up() not required if not adding anything to list
-    '''
     def add(self, value):
         self.heaplist.append(value)
         self.count += 1
@@ -43,7 +42,6 @@ class MinheapQ:
             else:
                 #print("Input heap is invalid!")
                 break
-    '''
 
     def retrieve_min(self):
         last_index = self.count
