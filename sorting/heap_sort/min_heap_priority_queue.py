@@ -4,10 +4,10 @@ class MinheapQ:
     def __init__(self, heaplist=None):
         if not heaplist:
             self.heaplist = []
-            self.position = 0
+            self.count = 0
         else:
             self.heaplist = heaplist
-            self.position = len(heaplist) - 1
+            self.count = len(heaplist) - 1
 
     def parent_index(self, index):
         return (index - 1) // 2
@@ -19,17 +19,17 @@ class MinheapQ:
         return (index * 2) + 2
 
     def child_present(self, index):
-        return self.left_child_index(index) < self.position
+        return self.left_child_index(index) < self.count
 
     # add() and heapify_up() not required if not adding anything to list
     def add(self, value):
         self.heaplist.append(value)
-        self.position += 1
+        self.count += 1
         self.heapify_up()
 
     def heapify_up(self):
         # we need to start from index 0
-        index = self.position - 1
+        index = self.count - 1
         parent_index = self.parent_index(index)
 
         # heapify up to the root
@@ -43,15 +43,15 @@ class MinheapQ:
             parent_index = self.parent_index(index)
 
     def retrieve_min(self):
-        if self.position == 0:
+        if self.count == 0:
             print("No items in heap")
             return
 
-        last_index = self.position - 1
+        last_index = self.count - 1
         min_value = self.heaplist[0]
         self.heaplist[0] = self.heaplist[last_index]
         self.heaplist.pop()
-        self.position -= 1
+        self.count -= 1
         self.heapify_down()
         
         return min_value
@@ -68,7 +68,7 @@ class MinheapQ:
             index = smaller_child_index
 
     def get_smaller_child_index(self, index):
-        if self.right_child_index(index) > self.position - 1:
+        if self.right_child_index(index) > self.count - 1:
             return self.left_child_index(index)
         else:
             left_child_index = self.left_child_index(index)
