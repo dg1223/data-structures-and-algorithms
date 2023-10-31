@@ -7,5 +7,7 @@ print(size < limit)
 #a = [98]
 #print(a[0] == a[-1])
 
-from random import randint
-print(randint(0, -1))
+#from random import randint
+#print(randint(0, -1))
+
+print(1//2)
