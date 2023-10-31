@@ -37,11 +37,8 @@ class MinheapQ:
             if parent > child:
                 self.heaplist[parent_index] = child
                 self.heaplist[index] = parent
-                index = parent_index
-                parent_index = self.parent_index(index)
-            else:
-                #print("Input heap is invalid!")
-                break
+            index = parent_index
+            parent_index = self.parent_index(index)
 
     def retrieve_min(self):
         last_index = self.count
@@ -62,10 +59,7 @@ class MinheapQ:
             if parent > child:
                 self.heaplist[index] = child
                 self.heaplist[smaller_child_index] = parent
-                index = smaller_child_index
-            else:
-                #print("Heap is invalid!")
-                break
+            index = smaller_child_index
 
     def get_smaller_child_index(self, index):
         if self.right_child_index(index) > self.count:
@@ -81,7 +75,7 @@ class MinheapQ:
             else:
                 return left_child_index
 
-'''
+
 # test
 heaplist = [10, 13, 21, 22, 23, 61, 99]
 min_heap = MinheapQ(heaplist)
@@ -92,4 +86,3 @@ print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
-'''
