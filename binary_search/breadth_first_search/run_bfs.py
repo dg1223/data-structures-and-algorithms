@@ -1,4 +1,4 @@
-from Treenode import Treenode
+from treenode import Treenode
 from bfs import bfs
 
 sample_root_node = Treenode("Home")
