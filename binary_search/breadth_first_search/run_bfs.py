@@ -1,16 +1,16 @@
-from treenode import Treenode
+from Treenode import Treenode
 from bfs import bfs
 
-sample_root_node = TreeNode("Home")
-docs = TreeNode("Documents")
-photos = TreeNode("Photos")
+sample_root_node = Treenode("Home")
+docs = Treenode("Documents")
+photos = Treenode("Photos")
 
 sample_root_node.children = [docs, photos]
 
-my_wish = TreeNode("WishList.txt")
-my_todo = TreeNode("TodoList.txt")
-my_cat = TreeNode("Fluffy.jpg")
-my_dog = TreeNode("Spot.jpg")
+my_wish = Treenode("WishList.txt")
+my_todo = Treenode("TodoList.txt")
+my_cat = Treenode("Fluffy.jpg")
+my_dog = Treenode("Spot.jpg")
 
 docs.children = [my_wish, my_todo]
 photos.children = [my_cat, my_dog]
