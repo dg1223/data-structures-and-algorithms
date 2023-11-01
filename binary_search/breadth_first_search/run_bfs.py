@@ -15,8 +15,6 @@ my_dog = Treenode("Spot.jpg")
 docs.children = [my_wish, my_todo]
 photos.children = [my_cat, my_dog]
 
-print(sample_root_node)
-
 path_to_target = bfs(sample_root_node, "Fluffy.jpg")
 if not path_to_target:
     print("No path found")
