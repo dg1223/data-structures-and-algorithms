@@ -12,6 +12,10 @@ class Graph:
         if not self.directed:
             self.graph_dict[to_vertex.value].add_edge(from_vertex.value)
 
+    '''    
+    Depth-first search: We search through the entire depth of a branch
+    before backtracking to the other branch
+    '''
     def find_path(self, start_vertex, end_vertex):
         start = [start_vertex]
         seen = {}
