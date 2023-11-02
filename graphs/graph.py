@@ -1,3 +1,4 @@
+# DFS graph using adjacency list (dict)
 class Graph:
     def __init__(self, directed=False):
         self.graph_dict = {}
