@@ -1,3 +1,4 @@
+# pre-order traversal
 def dfs(graph, start_vertex, target_vertex, visited=None):
     if not visited:
         visited = []
