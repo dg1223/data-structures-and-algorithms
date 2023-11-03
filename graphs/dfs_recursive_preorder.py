@@ -1,5 +1,5 @@
 # pre-order traversal
-def dfs(graph, start_vertex, target_vertex, visited=None):
+def dfs_preorder(graph, start_vertex, target_vertex, visited=None):
     if not visited:
         visited = []
 
@@ -10,7 +10,7 @@ def dfs(graph, start_vertex, target_vertex, visited=None):
     
     for neighbour in graph[start_vertex]:
         if neighbour not in visited:
-            path = dfs(graph, neighbour, target_vertex, visited)
+            path = dfs_preorder(graph, neighbour, target_vertex, visited)
             if path:
                 return path
 
@@ -23,4 +23,4 @@ the_most_dangerous_graph = {
   'crocodiles': set(['piranhas', 'lasers'])
   }
 
-print(dfs(the_most_dangerous_graph, "crocodiles", "bees"))
+print(dfs_preorder(the_most_dangerous_graph, "crocodiles", "bees"))
