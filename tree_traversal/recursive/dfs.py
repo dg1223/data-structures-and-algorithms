@@ -1,27 +1,26 @@
 from collections import deque
 
-def recursive_bfs(structure, queue, visited):
+def recursive_dfs(structure, queue, visited):
     if not queue:
         return None
 
-    # either popleft and append or
-    # pop and appendleft
     current_node = queue.pop()
     print(current_node)
 
     if current_node in structure:
         for neighbour in structure[current_node]:
             if neighbour not in visited:
-                queue.appendleft(neighbour)
+                queue.append(neighbour)
                 visited.add(neighbour)
+                # call DFS to traverse the children before 
+                # it reaches the sibling
+                recursive_dfs(structure, queue, visited)
 
-    recursive_bfs(structure, queue, visited)
-
-def bfs(structure, start):
+def dfs(structure, start):
     visited = set()
     queue = deque([start])
     visited.add(start)
-    recursive_bfs(structure, queue, visited)
+    recursive_dfs(structure, queue, visited)
 
 # Create a graph represented as an adjacency list
 graph = {
@@ -32,7 +31,7 @@ graph = {
     'E': ['B', 'F'],
     'F': ['C', 'E']
 }
-bfs(graph, 'A')
+dfs(graph, 'A')
 
 #tree = {
 #    'A': ['B', 'C'],
@@ -41,4 +40,4 @@ bfs(graph, 'A')
 #}
 #
 ## Call BFS starting from node 'A'
-#bfs(tree, 'A')
+#dfs(tree, 'A')
