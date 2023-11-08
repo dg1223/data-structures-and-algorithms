@@ -37,5 +37,5 @@ tree = {
     'C': ['F', 'G']
 }
 
-# Call BFS starting from node 'A'
+# Call DFS starting from node 'A'
 dfs(tree, 'A')
