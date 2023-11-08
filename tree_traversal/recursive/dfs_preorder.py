@@ -20,22 +20,22 @@ def dfs(structure, start):
     visited.add(start)
     recursive_dfs(structure, stack, visited)
 
-# Create a graph represented as an adjacency list
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
-dfs(graph, 'A')
-
-#tree = {
+## Create a graph represented as an adjacency list
+#graph = {
 #    'A': ['B', 'C'],
-#    'B': ['D', 'E'],
-#    'C': ['F', 'G']
+#    'B': ['A', 'D', 'E'],
+#    'C': ['A', 'F'],
+#    'D': ['B'],
+#    'E': ['B', 'F'],
+#    'F': ['C', 'E']
 #}
-#
-## Call BFS starting from node 'A'
-#dfs(tree, 'A')
+#dfs(graph, 'A')
+
+tree = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F', 'G']
+}
+
+# Call BFS starting from node 'A'
+dfs(tree, 'A')
