@@ -1,26 +1,24 @@
-from collections import deque
-
-def recursive_dfs(structure, queue, visited):
-    if not queue:
+def recursive_dfs(structure, stack, visited):
+    if not stack:
         return None
 
-    current_node = queue.pop()
+    current_node = stack.pop()
     print(current_node)
 
     if current_node in structure:
         for neighbour in structure[current_node]:
             if neighbour not in visited:
-                queue.append(neighbour)
+                stack.append(neighbour)
                 visited.add(neighbour)
                 # call DFS to traverse the children before 
                 # it reaches the sibling
-                recursive_dfs(structure, queue, visited)
+                recursive_dfs(structure, stack, visited)
 
 def dfs(structure, start):
     visited = set()
-    queue = deque([start])
+    stack = [start]
     visited.add(start)
-    recursive_dfs(structure, queue, visited)
+    recursive_dfs(structure, stack, visited)
 
 # Create a graph represented as an adjacency list
 graph = {
