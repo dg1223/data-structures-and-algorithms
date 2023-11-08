@@ -1,4 +1,4 @@
-def recursive_dfs(structure, stack, visited):
+def recursive_postorder_dfs(structure, stack, visited):
     if not stack:
         return None
 
@@ -11,15 +11,15 @@ def recursive_dfs(structure, stack, visited):
                 visited.add(neighbour)
                 # call DFS to traverse the children before 
                 # it reaches the sibling
-                recursive_dfs(structure, stack, visited)
+                recursive_postorder_dfs(structure, stack, visited)
     
     print(current_node)
 
-def dfs(structure, start):
+def postorder_dfs(structure, start):
     visited = set()
     stack = [start]
     visited.add(start)
-    recursive_dfs(structure, stack, visited)
+    recursive_postorder_dfs(structure, stack, visited)
 
 ## Create a graph represented as an adjacency list
 #graph = {
@@ -30,7 +30,7 @@ def dfs(structure, start):
 #    'E': ['B', 'F'],
 #    'F': ['C', 'E']
 #}
-#dfs(graph, 'A')
+#postorder_dfs(graph, 'A')
 
 tree = {
     'A': ['B', 'C'],
@@ -39,4 +39,4 @@ tree = {
 }
 
 # Call DFS starting from node 'A'
-dfs(tree, 'A')
+postorder_dfs(tree, 'A')
