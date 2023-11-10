@@ -5,6 +5,7 @@ def recursive_dfs_with_cycle_detection(graph, current_node, parent, visited):
         if neighbour not in visited:
             if recursive_dfs_with_cycle_detection(graph, neighbour, current_node, visited):
                 return True
+        # e.g. A -> B -> C -> A
         elif parent != neighbour:
             return True
 
@@ -22,13 +23,22 @@ def has_cycle(graph):
 
 
 # Create a graph represented as an adjacency list
+#graph = {
+#    'A': ['B', 'C'],
+#    'B': ['A', 'D', 'E'],
+#    'C': ['A', 'F'],
+#    'D': ['B'],
+#    'E': ['B', 'F'],
+#    'F': ['C', 'E']
+#}
+
 graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
+    'A': ['C'],
+    'B': ['A', 'D'],
+    'C': ['F'],
+    'D': [],
+    'E': ['B'],
+    'F': ['E']
 }
 
 if has_cycle(graph):
