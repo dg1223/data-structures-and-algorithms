@@ -49,6 +49,12 @@ def merge(left_sublist, right_sublist):
     if right:
         result.extend(right)
 
+    '''
+    If you return the raw result, the raw deque object
+    gets printed which still shows all items.
+    To return a list object, do:
+    return list(deque)
+    '''
     return result
 
 
