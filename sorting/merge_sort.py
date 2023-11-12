@@ -5,17 +5,12 @@ Algorithm:
     merge
 '''
 
-def merge_sort(items):
-    length = len(items)
-    if length <= 1:
-        return items
+def partition(items, length):
     mid_index = length // 2
     left_split = items[:mid_index]
     right_split = items[mid_index:]
-    left_sorted = merge_sort(left_split)
-    right_sorted = merge_sort(right_split)
-
-    return merge(left_sorted, right_sorted)
+    
+    return left_split, right_split
 
 def merge(left, right):
     result = []
@@ -35,6 +30,16 @@ def merge(left, right):
         result += right
 
     return result
+
+def merge_sort(items):
+    length = len(items)
+    if length <= 1:
+        return items
+    left, right = partition(items, length)
+    left_sorted = merge_sort(left)
+    right_sorted = merge_sort(right)
+
+    return merge(left_sorted, right_sorted)
 
 
 unordered_list1 = [356, 746, 264, 569, 949, 895, 125, 455]
