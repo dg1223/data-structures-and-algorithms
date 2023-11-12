@@ -5,13 +5,6 @@ Algorithm:
     merge
 '''
 
-def partition(items, length):
-    mid_index = length // 2
-    left_split = items[:mid_index]
-    right_split = items[mid_index:]
-    
-    return left_split, right_split
-
 def merge_sort(items):
     length = len(items)
     if length <= 1:
@@ -21,6 +14,13 @@ def merge_sort(items):
     right_sorted = merge_sort(right)
 
     return merge(left_sorted, right_sorted)
+
+def partition(items, length):
+    mid_index = length // 2
+    left_split = items[:mid_index]
+    right_split = items[mid_index:]
+    
+    return left_split, right_split
 
 def merge(left, right):
     result = []
