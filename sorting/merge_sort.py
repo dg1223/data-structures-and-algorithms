@@ -7,9 +7,11 @@ Algorithm:
 
 def merge_sort(items):
     length = len(items)
+    # base case
     if length <= 1:
         return items
     left, right = partition(items, length)
+    # recursive steps
     left_sorted = merge_sort(left)
     right_sorted = merge_sort(right)
 
