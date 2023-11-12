@@ -49,7 +49,7 @@ def merge(left_sublist, right_sublist):
     if right:
         result.extend(right)
 
-    return list(result)
+    return result
 
 
 unordered_list1 = [356, 746, 264, 569, 949, 895, 125, 455]
