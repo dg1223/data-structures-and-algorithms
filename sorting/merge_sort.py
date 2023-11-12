@@ -12,6 +12,16 @@ def partition(items, length):
     
     return left_split, right_split
 
+def merge_sort(items):
+    length = len(items)
+    if length <= 1:
+        return items
+    left, right = partition(items, length)
+    left_sorted = merge_sort(left)
+    right_sorted = merge_sort(right)
+
+    return merge(left_sorted, right_sorted)
+
 def merge(left, right):
     result = []
     while left and right:
@@ -30,16 +40,6 @@ def merge(left, right):
         result += right
 
     return result
-
-def merge_sort(items):
-    length = len(items)
-    if length <= 1:
-        return items
-    left, right = partition(items, length)
-    left_sorted = merge_sort(left)
-    right_sorted = merge_sort(right)
-
-    return merge(left_sorted, right_sorted)
 
 
 unordered_list1 = [356, 746, 264, 569, 949, 895, 125, 455]
