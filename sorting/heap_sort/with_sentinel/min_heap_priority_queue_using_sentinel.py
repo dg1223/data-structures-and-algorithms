@@ -3,20 +3,23 @@
 class MinheapQ:
     def __init__(self, heaplist=None):
         if not heaplist:
-            self.heaplist = []
+            self.heaplist = [None]
             self.count = 0
         else:
             self.heaplist = heaplist
             self.count = len(heaplist) - 1
 
     def parent_index(self, index):
-        return (index - 1) // 2
+        return (index) // 2
+        #return (index - 1) // 2
 
     def left_child_index(self, index):
-        return (index * 2) + 1
+        return (index * 2)
+        #return (index * 2) + 1
 
     def right_child_index(self, index):
-        return (index * 2) + 2
+        return (index * 2) + 1
+        #return (index * 2) + 2
 
     def child_present(self, index):
         return self.left_child_index(index) <= self.count
@@ -32,7 +35,7 @@ class MinheapQ:
         parent_index = self.parent_index(index)
 
         # heapify up to the root
-        while parent_index >= 0:
+        while parent_index > 0:
             parent = self.heaplist[parent_index]
             child = self.heaplist[index]
             if parent > child:
@@ -42,13 +45,13 @@ class MinheapQ:
             parent_index = self.parent_index(index)
 
     def retrieve_min(self):
-        if self.count < 0:
+        if self.count == 0:
             print("No more items in heap")
-            return
+            return None
 
-        min_value = self.heaplist[0]
+        min_value = self.heaplist[1]
         last_index = self.count
-        self.heaplist[0] = self.heaplist[last_index]
+        self.heaplist[1] = self.heaplist[last_index]
         self.heaplist.pop()
         self.count -= 1
         self.heapify_down()
@@ -56,7 +59,7 @@ class MinheapQ:
         return min_value
 
     def heapify_down(self):
-        index = 0
+        index = 1
         while self.child_present(index):
             smaller_child_index = self.get_smaller_child_index(index)
             parent = self.heaplist[index]
@@ -82,7 +85,7 @@ class MinheapQ:
 
 
 # test
-heaplist = [10, 13, 21, 22, 23, 61, 99]
+heaplist = [None, 10, 13, 21, 22, 99]
 min_heap = MinheapQ(heaplist)
 print(f"initial heap list: {min_heap.heaplist}\n")
 
@@ -90,8 +93,6 @@ number = 90
 min_heap.add(number)
 print(f"heap list after adding {number}: {min_heap.heaplist}\n")
 
-print(f"minimum value = {min_heap.retrieve_min()}")
-print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")

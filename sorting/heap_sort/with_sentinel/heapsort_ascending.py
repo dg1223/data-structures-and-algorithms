@@ -1,4 +1,4 @@
-from min_heap_priority_queue import MinheapQ
+from min_heap_priority_queue_using_sentinel import MinheapQ
 
 def heapsort(items):
     sorted_list = []
@@ -15,6 +15,6 @@ def heapsort(items):
 
     return sorted_list
 
-my_list = [99, 22, 61, 10, 21, 13, 23]
+my_list = [99, 22, 61, 10, 21, 13, 23, 90]
 print(f"unsorted list = {my_list}")
 print(f"sorted list = {heapsort(my_list)}")
