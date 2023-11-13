@@ -1,10 +1,5 @@
 # Priority queue using min-heap
 
-'''
-Note: Any index comparison with position/item count
-      is against (count - 1)
-'''
-
 class MinheapQ:
     def __init__(self, heaplist=None):
         if not heaplist:
@@ -24,7 +19,7 @@ class MinheapQ:
         return (index * 2) + 2
 
     def child_present(self, index):
-        return self.left_child_index(index) <= self.count - 1
+        return self.left_child_index(index) <= self.count
 
     # add() and heapify_up() not required if not adding anything to list
     def add(self, value):
@@ -33,8 +28,7 @@ class MinheapQ:
         self.heapify_up()
 
     def heapify_up(self):
-        # we need to start from index 0
-        index = self.count - 1
+        index = self.count
         parent_index = self.parent_index(index)
 
         # heapify up to the root
@@ -48,12 +42,12 @@ class MinheapQ:
             parent_index = self.parent_index(index)
 
     def retrieve_min(self):
-        if self.count == 0:
-            print("No items in heap")
+        if self.count < 0:
+            print("No more items in heap")
             return
 
         min_value = self.heaplist[0]
-        last_index = self.count - 1        
+        last_index = self.count
         self.heaplist[0] = self.heaplist[last_index]
         self.heaplist.pop()
         self.count -= 1
@@ -73,7 +67,7 @@ class MinheapQ:
             index = smaller_child_index
 
     def get_smaller_child_index(self, index):
-        if self.right_child_index(index) > self.count - 1:
+        if self.right_child_index(index) > self.count:
             return self.left_child_index(index)
         else:
             left_child_index = self.left_child_index(index)
@@ -86,15 +80,22 @@ class MinheapQ:
             else:
                 return left_child_index
 
-'''
+
 # test
 heaplist = [10, 13, 21, 22, 23, 61, 99]
 min_heap = MinheapQ(heaplist)
 print(f"initial heap list: {min_heap.heaplist}\n")
 
-#max_heap.add(90)
+number = 90
+min_heap.add(number)
+print(f"heap list after adding {number}: {min_heap.heaplist}\n")
+
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
 print(f"minimum value = {min_heap.retrieve_min()}")
-'''
+print(f"minimum value = {min_heap.retrieve_min()}")
+print(f"minimum value = {min_heap.retrieve_min()}")
+print(f"minimum value = {min_heap.retrieve_min()}")
+print(f"minimum value = {min_heap.retrieve_min()}")
+print(f"minimum value = {min_heap.retrieve_min()}")
