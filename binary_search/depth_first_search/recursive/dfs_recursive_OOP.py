@@ -4,6 +4,16 @@ class DFS:
 		self.children = []
 
 	def dfs(self, start, target, path=[]):
+		'''
+		path = path + [start] creates a new list called
+		path on each recursive call and stores the path
+		from the child node (current start node) to 
+		possible target node.
+		If we do path.append(start) or path += [start],
+		every new path will be added to the previously
+		found path. As a result, we won't be able to 
+		track distinct paths of each child.
+		'''
 		path = path + [start]
 
 		if start.value == target:
