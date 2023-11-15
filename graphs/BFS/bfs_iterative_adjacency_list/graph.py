@@ -1,4 +1,5 @@
-# DFS graph using adjacency list (dict)
+from collections import deque
+
 class Graph:
 	def __init__(self, directed=False):
 		self.graph_dict = {}
@@ -8,21 +9,17 @@ class Graph:
 		self.graph_dict[vertex.value] = vertex
 
 	def add_edge(self, from_vertex, to_vertex):
-		print(f"Adding edge from {from_vertex.value} to {to_vertex.value}")
 		self.graph_dict[from_vertex.value].add_edge(to_vertex.value)
 		if not self.directed:
 			self.graph_dict[to_vertex.value].add_edge(from_vertex.value)
 
-	'''    
-	Depth-first search: We search through the entire depth of a branch
-	before backtracking to the other branch
-	'''
 	def find_path(self, start_vertex, end_vertex):
-		start = [start_vertex]
-		seen = {}
+		start = deque()
+		start.append(start_vertex)
+		seen = set()
 		while start:
 			current_vertex = start.pop()
-			seen[current_vertex] = True
+			seen.add(current_vertex)
 			print("Visiting " + current_vertex)
 			if current_vertex == end_vertex:
 				return True
@@ -30,6 +27,13 @@ class Graph:
 				vertex = self.graph_dict[current_vertex]
 				next_vertices = vertex.get_edges()
 				next_vertices = [vertex for vertex in next_vertices if vertex not in seen]
-				start += next_vertices
+				'''
+				With appendleft(), you are trying to append a list of vertices (next_vertices)
+				to the start deque using appendleft. However, in BFS, you should add 
+				individual vertices to the deque, not a list of vertices.
+				To fix this, you should use the extendleft method instead of appendleft.
+				'''
+				#start.appendleft(next_vertices)
+				start.extendleft(next_vertices)
 		return False
 
