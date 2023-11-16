@@ -1,9 +1,9 @@
-def recursive_inorder_dfs(structure, current_node):
-    if current_node in structure:
-        left_child, right_child = structure[current_node]
+def recursive_inorder_dfs(structure, current_vertex):
+    if current_vertex in structure:
+        left_child, right_child = structure[current_vertex]
         if left_child:
             recursive_inorder_dfs(structure, left_child)
-        print(current_node)
+        print(current_vertex)
         if right_child:
             recursive_inorder_dfs(structure, right_child)
 
