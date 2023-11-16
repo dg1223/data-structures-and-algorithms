@@ -1,11 +1,11 @@
-def recursive_inorder_dfs(structure, current_vertex):
-    if current_vertex in structure:
-        left_child, right_child = structure[current_vertex]
+def recursive_inorder_dfs(graph, current_vertex):
+    if current_vertex in graph:
+        left_child, right_child = graph[current_vertex]
         if left_child:
-            recursive_inorder_dfs(structure, left_child)
+            recursive_inorder_dfs(graph, left_child)
         print(current_vertex)
         if right_child:
-            recursive_inorder_dfs(structure, right_child)
+            recursive_inorder_dfs(graph, right_child)
 
 def inorder_dfs(structure, start):
     recursive_inorder_dfs(structure, start)
