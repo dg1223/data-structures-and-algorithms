@@ -1,24 +1,18 @@
-def recursive_preorder_dfs(structure, stack, visited):
-    if not stack:
-        return None
+# pre-order: PLR (parent, left, right)
+def preorder_dfs(graph, start_vertex, visited=None):
+    if not visited:
+        visited = []
+    print(start_vertex)
 
-    current_node = stack.pop()
-    print(current_node)
-
-    if current_node in structure:
-        for neighbour in structure[current_node]:
+    visited = visited + [start_vertex]    
+    
+	# Avoid leaf nodes because they have no neighbour
+    if start_vertex in graph:
+        for neighbour in graph[start_vertex]:
             if neighbour not in visited:
-                stack.append(neighbour)
-                visited.add(neighbour)
-                # call DFS to traverse the children before 
-                # it reaches the sibling
-                recursive_preorder_dfs(structure, stack, visited)
-
-def preorder_dfs(structure, start):
-    visited = set()
-    stack = [start]
-    visited.add(start)
-    recursive_preorder_dfs(structure, stack, visited)
+                path = preorder_dfs(graph, neighbour, visited)
+                if path:
+                    return path
 
 ## Create a graph represented as an adjacency list
 #graph = {
