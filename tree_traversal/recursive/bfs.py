@@ -17,11 +17,11 @@ def recursive_bfs(graph, queue, visited):
 
     recursive_bfs(graph, queue, visited)
 
-def bfs(structure, start):
+def bfs(graph, start):
     visited = set()
     queue = deque([start])
     visited.add(start)
-    recursive_bfs(structure, queue, visited)
+    recursive_bfs(graph, queue, visited)
 
 # Create a graph represented as an adjacency list
 graph = {
