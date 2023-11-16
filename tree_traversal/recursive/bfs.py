@@ -1,6 +1,6 @@
 from collections import deque
 
-def recursive_bfs(structure, queue, visited):
+def recursive_bfs(graph, queue, visited):
     if not queue:
         return None
 
@@ -9,13 +9,13 @@ def recursive_bfs(structure, queue, visited):
     current_node = queue.pop()
     print(current_node)
 
-    if current_node in structure:
-        for neighbour in structure[current_node]:
+    if current_node in graph:
+        for neighbour in graph[current_node]:
             if neighbour not in visited:
                 queue.appendleft(neighbour)
                 visited.add(neighbour)
 
-    recursive_bfs(structure, queue, visited)
+    recursive_bfs(graph, queue, visited)
 
 def bfs(structure, start):
     visited = set()
