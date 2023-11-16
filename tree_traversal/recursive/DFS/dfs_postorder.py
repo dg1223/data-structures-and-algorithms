@@ -1,25 +1,18 @@
-def recursive_postorder_dfs(structure, stack, visited):
-    if not stack:
-        return None
+# post-order: LRP (left, right, parent)
+def postorder_dfs(graph, start_vertex, visited=None):
+	if not visited:
+		visited = []
 
-    current_node = stack.pop()    
+	visited  = visited + [start_vertex]
 
-    if current_node in structure:
-        for neighbour in structure[current_node]:
-            if neighbour not in visited:
-                stack.append(neighbour)
-                visited.add(neighbour)
-                # call DFS to traverse the children before 
-                # it reaches the sibling
-                recursive_postorder_dfs(structure, stack, visited)
-    
-    print(current_node)
+	if start_vertex in graph:
+		for neighbour in graph[start_vertex]:
+			if neighbour not in visited:
+				new_path = postorder_dfs(graph, neighbour, visited)
+				if new_path:
+					return new_path
 
-def postorder_dfs(structure, start):
-    visited = set()
-    stack = [start]
-    visited.add(start)
-    recursive_postorder_dfs(structure, stack, visited)
+	print(start_vertex)
 
 ## Create a graph represented as an adjacency list
 #graph = {
