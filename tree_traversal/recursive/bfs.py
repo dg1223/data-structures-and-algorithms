@@ -6,11 +6,11 @@ def recursive_bfs(graph, queue, visited):
 
     # either popleft and append or
     # pop and appendleft
-    current_node = queue.pop()
-    print(current_node)
+    current_vertex = queue.pop()
+    print(current_vertex)
 
-    if current_node in graph:
-        for neighbour in graph[current_node]:
+    if current_vertex in graph:
+        for neighbour in graph[current_vertex]:
             if neighbour not in visited:
                 queue.appendleft(neighbour)
                 visited.add(neighbour)
