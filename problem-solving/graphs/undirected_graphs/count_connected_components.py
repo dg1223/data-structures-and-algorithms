@@ -9,9 +9,9 @@ def count_connected_components(graph):
     visited = set()
     count = 0
 
-    for node in graph:
-        if node not in visited:
-            recursive_dfs(graph, node, visited)
+    for vertex in graph:
+        if vertex not in visited:
+            recursive_dfs(graph, vertex, visited)
             count += 1
 
     return count
