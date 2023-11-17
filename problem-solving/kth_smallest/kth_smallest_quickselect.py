@@ -20,19 +20,21 @@ def quickselect(array, start, end, k):
         return array[start]
 
     pivot_index = partition(array, start, end)
-    # 3rd smallest would be at index 2 (0, 1, 2)
-    kth_index = k - 1
+    
+	# need to figure out why using k-1 in the conditions below doesn't work
+    #kth_index = k - 1
 
-    if kth_index == pivot_index:
-        return array[kth_index]
+    if k == pivot_index:
+        return array[k]
     # k is smaller, so the element must be in the left sublist
-    elif kth_index < pivot_index:
-        return quickselect(array, start, pivot_index-1, kth_index)
+    elif k < pivot_index:
+        return quickselect(array, start, pivot_index-1, k)
     else:
-        return quickselect(array, pivot_index+1, end, kth_index)
+        return quickselect(array, pivot_index+1, end, k)
 
 # test
 items = [7, 3, 4, 10, 20, 15]
 k = 3
-kth_smallest = quickselect(items, 0, len(items) - 1, k)
+# 3rd smallest would be at index 2 (0, 1, 2)
+kth_smallest = quickselect(items, 0, len(items) - 1, k-1)
 print(f"{k = }, {kth_smallest = }")
