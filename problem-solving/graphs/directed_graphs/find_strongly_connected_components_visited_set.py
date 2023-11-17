@@ -14,12 +14,12 @@ class Graph:
 
 
     def dfs(self, vertex, stack, visited):
-        visited[vertex] = True
+        visited.add(vertex)
         #print(f"{vertex = }, graph = {self.graph[vertex]}, {visited = }")
         # here, self.graph is the original graph
         for neighbor in self.graph[vertex]:
             #print(f"{neighbor = }")
-            if not visited[neighbor]:
+            if neighbor not in visited:
                 self.dfs(neighbor, stack, visited)
         stack.append(vertex)
 
@@ -30,34 +30,38 @@ class Graph:
                 transposed_graph.add_edge(neighbor, vertex)
         return transposed_graph
 
-    def dfs_scc(self, vertex, scc, visited):
-        visited[vertex] = True
-        scc.append(vertex)
+    def dfs_on_transposed_graph(self, vertex, individual_scc_list, visited):
+        visited.add(vertex)
+        individual_scc_list.append(vertex)
         # here, self.graph is the transposed graph
         for neighbor in self.graph[vertex]:
-            if not visited[neighbor]:
-                self.dfs_scc(neighbor, scc, visited)
+            if neighbor not in visited:
+                self.dfs_on_transposed_graph(neighbor, individual_scc_list, visited)
 
     def strongly_connected_components(self):
         stack = []
+        visited = set()
         #vertices = set(self.graph.keys())
         #print(f"{vertices = }")
-        visited = {vertex: False for vertex in self.graph.keys()}
 
         for vertex in self.graph:
-            if not visited[vertex]:
+            if vertex not in visited:
                 self.dfs(vertex, stack, visited)
 
         transposed_graph = self.transpose()
-        visited = {vertex: False for vertex in transposed_graph.graph.keys()}
+        visited = set()
         strongly_connected_components = []
 
         while stack:
             current_vertex = stack.pop()
-            if not visited[current_vertex]:
-                scc = []
-                transposed_graph.dfs_scc(current_vertex, scc, visited)
-                strongly_connected_components.append(scc)
+            '''
+            I tend to forget checking the visited set here.
+            '''
+            if current_vertex not in visited:
+                # we need this list to print the components
+                individual_scc_list = []
+                transposed_graph.dfs_on_transposed_graph(current_vertex, individual_scc_list, visited)
+                strongly_connected_components.append(individual_scc_list)
 
         return strongly_connected_components
 
@@ -70,7 +74,7 @@ g.add_edge('C', 'A')
 g.add_edge('B', 'D')
 g.add_edge('D', 'E')
 
-scc_result = g.strongly_connected_components()
+scc_list = g.strongly_connected_components()
 print("Strongly Connected Components:")
-for component in scc_result:
-    print(component)
+for idx, component in enumerate(scc_list):
+		print(f"SCC #{idx} = {component}")
