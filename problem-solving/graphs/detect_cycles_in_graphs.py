@@ -14,9 +14,9 @@ def recursive_dfs_with_cycle_detection(graph, current_node, parent, visited):
 def has_cycle(graph):
     visited = set()
 
-    for node in graph:
-        if node not in visited:
-            if recursive_dfs_with_cycle_detection(graph, node, None, visited):
+    for vertex in graph:
+        if vertex not in visited:
+            if recursive_dfs_with_cycle_detection(graph, vertex, None, visited):
                 return True
     
     return False
