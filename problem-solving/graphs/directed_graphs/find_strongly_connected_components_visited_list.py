@@ -55,9 +55,9 @@ class Graph:
         while stack:
             current_vertex = stack.pop()
             if not visited[current_vertex]:
-                scc = []
-                transposed_graph.dfs_on_transposed_graph(current_vertex, scc, visited)
-                strongly_connected_components.append(scc)
+                scc_stack = []
+                transposed_graph.dfs_on_transposed_graph(current_vertex, scc_stack, visited)
+                strongly_connected_components.append(scc_stack)
 
         return strongly_connected_components
 
