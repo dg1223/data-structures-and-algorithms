@@ -30,13 +30,13 @@ class Graph:
                 transposed_graph.add_edge(neighbor, vertex)
         return transposed_graph
 
-    def dfs_on_transposed_graph(self, vertex, scc, visited):
+    def dfs_on_transposed_graph(self, vertex, scc_stack, visited):
         visited[vertex] = True
-        scc.append(vertex)
+        scc_stack.append(vertex)
         # here, self.graph is the transposed graph
         for neighbor in self.graph[vertex]:
             if not visited[neighbor]:
-                self.dfs_on_transposed_graph(neighbor, scc, visited)
+                self.dfs_on_transposed_graph(neighbor, scc_stack, visited)
 
     def strongly_connected_components(self):
         stack = []
