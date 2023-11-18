@@ -1,17 +1,8 @@
 class Node:
     def __init__(self, value, next_node=None):
         self.value = value
-        self.next_node = next_node
-        
-    # getter method: redundant, can delete
-    # def get_value(self):
-    #     return self.value
-    
-    # getter method: redundant, can delete
-    # def get_next_node(self):
-    #     return self.next_node
-    
-    # setter
+        self.next_node = next_
+
     def set_next_node(self, next_node):
         self.next_node = next_node
 
