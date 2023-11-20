@@ -6,12 +6,12 @@ class BFS:
         self.children = []
 
     def bfs(self, root, target):
-        frontier_queue = deque()
+        frontier = deque()
         start = [root]
-        frontier_queue.appendleft(start)
+        frontier.appendleft(start)
 
-        while frontier_queue:
-            current_path = frontier_queue.pop()
+        while frontier:
+            current_path = frontier.pop()
             current_node = current_path[-1]
             print(f"current node = {current_node.value}")
             if current_node.value == target:
@@ -20,7 +20,7 @@ class BFS:
                 print(f"child = {child.value}")
                 new_path = current_path.copy()
                 new_path.append(child)
-                frontier_queue.appendleft(new_path)
+                frontier.appendleft(new_path)
         return None
 
 root = BFS('A')

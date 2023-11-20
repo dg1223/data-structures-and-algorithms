@@ -4,6 +4,7 @@ class DFS:
 		self.children = []
 
 	def dfs(self, start, target, path=[]):
+		print(f"Visiting node: {start.value}")
 		'''
 		path = path + [start] creates a new list called
 		path on each recursive call and stores the path

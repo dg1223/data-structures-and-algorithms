@@ -11,6 +11,7 @@ class BFS:
 
 		current_path = frontier.pop()
 		current_node = current_path[-1]
+		print(f"Visiting node: {current_node.value}")
 
 		if current_node.value == target:
 			return current_path
@@ -22,31 +23,28 @@ class BFS:
 
 		return self.bfs_recursive(frontier, target)
 
-	def bfs(self, root, target):
+	def bfs(self, start, target):
 		frontier = deque()
-		start = [root]
+		start = [start]
 		frontier.appendleft(start)
 
 		return self.bfs_recursive(frontier, target)
 
-sample_root_node = BFS("Home")
-docs = BFS("Documents")
-photos = BFS("Photos")
+root = BFS('A')
+two = BFS("B")
+three = BFS("C")
+root.children = [two, three]
+four = BFS("D")
+five = BFS("E")
+six = BFS("F")
+seven = BFS("G")
+two.children = [five, four]
+three.children = [seven, six]
 
-sample_root_node.children = [docs, photos]
-
-my_wish = BFS("WishList.txt")
-my_todo = BFS("TodoList.txt")
-my_cat = BFS("Fluffy.jpg")
-my_dog = BFS("Spot.jpg")
-
-docs.children = [my_wish, my_todo]
-photos.children = [my_cat, my_dog]
-
-path_to_target = sample_root_node.bfs(sample_root_node, "Fluffy.jpg")
-if not path_to_target:
-    print("No path found")
+path = root.bfs(root, 'F')
+if not path:
+	print(f"No path found from {root.value} to F")
 else:
-    print("Path found!")
-    for node in path_to_target:
-        print(node.value)
+	print(f"Path found from {root.value} to F")
+	for node in path:
+		print(node.value)
