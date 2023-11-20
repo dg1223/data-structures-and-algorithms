@@ -22,6 +22,7 @@ class DFS:
 		if not self.directed:
 			self.graph_dict[to_vertex.value].add_edge(from_vertex.value)
 
+	# DFS algorithm
 	def find_path(self, start_vertex, target_vertex):
 		start = [start_vertex]
 		seen = set()
