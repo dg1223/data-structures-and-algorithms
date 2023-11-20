@@ -2,6 +2,7 @@
 class Hashmap:
     def __init__(self, array_size=10):
         self.array_size = array_size
+		# lists within the list named 'array'
         self.array = [None] * array_size
 
     def _hash(self, key, collisions=0):
