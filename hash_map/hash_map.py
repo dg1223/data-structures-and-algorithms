@@ -36,6 +36,10 @@ class Hashmap:
         # collision
         else:
             collisions = 1
+            '''
+            We keep probing until we find an empty index or
+            and index with matching key
+            '''
             while self.array[index][0] != key:
                 new_index = self.calculate_index(key, collisions)
                 new_key_val = self.array[new_index]
@@ -61,10 +65,6 @@ class Hashmap:
         # different key in the array index -> it's a collision
         else:
             collisions = 1
-            '''
-            We keep probing until we find an empty index or
-            and index with matching key
-            '''
             while retrieval_key_val[0] != key:
                 new_index = self.calculate_index(key, collisions)
                 retrieval_key_val = self.array[new_index]
