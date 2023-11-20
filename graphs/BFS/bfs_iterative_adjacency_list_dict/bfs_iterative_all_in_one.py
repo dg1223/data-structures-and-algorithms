@@ -31,14 +31,13 @@ class BFS:
 		seen = set()
 		while start:
 			current_vertex = start.pop()
-			print(f"Visiting {current_vertex}")
-			seen.add(current_vertex)
+			print(f"Visiting {current_vertex}")			
 			if current_vertex == target_vertex:
 				return True
-			else:
-				next_vertices = self.graph[current_vertex].get_edges()
-				next_vertices = [item for item in next_vertices if item not in seen]
-				start.extendleft(next_vertices)
+			seen.add(current_vertex)
+			next_vertices = self.graph[current_vertex].get_edges()
+			next_vertices = [item for item in next_vertices if item not in seen]
+			start.extendleft(next_vertices)
 		return False
 
 if __name__ == "__main__":
