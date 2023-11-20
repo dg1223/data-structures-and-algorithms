@@ -29,13 +29,23 @@ class DFS:
 		while start:
 			current_vertex = start.pop()
 			print(f"Visiting {current_vertex}")
-			seen.add(current_vertex)
+			'''
+			Just by moving the following instruction after the if statement,
+			we can neutralize a lot of execution footprint if we consider a
+			large-scale system with 1 billion users.
+			A typical instruction takes 25 nanoseconds. 10^9 i.e. 1 billion
+			of these instructions can take 25 seconds (10^9 ns = 1 second)
+			So, for every 1 billion hit, we save 25 seconds of server use
+			and reduce carbon footprint or energy consumption.
+			'''
+			#seen.add(current_vertex)
 			if current_vertex == target_vertex:
 				return True
-			else:
-				next_vertices = self.graph[current_vertex].get_edges()
-				next_vertices = [item for item in next_vertices if item not in seen]
-				start += next_vertices
+
+			seen.add(current_vertex)
+			next_vertices = self.graph[current_vertex].get_edges()
+			next_vertices = [item for item in next_vertices if item not in seen]
+			start += next_vertices
 		return False
 
 if __name__ == "__main__":
