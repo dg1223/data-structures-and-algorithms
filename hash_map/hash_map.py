@@ -10,6 +10,7 @@ class Hashmap:
         return hash_code + collisions
 
     def compress(self, hashed_key):
+		# value will always be lesser than array size
         return hashed_key % self.array_size
 
     def calculate_index(self, key, collisions=0):
@@ -21,7 +22,8 @@ class Hashmap:
         index = self.calculate_index(key)
         key_val = self.array[index]
 
-        # index out of bounds
+        # if array index is empty, assign key-val
+		# key-val pair is a list within the list named 'array'
         if not key_val:
             self.array[index] = [key, value]
             return
