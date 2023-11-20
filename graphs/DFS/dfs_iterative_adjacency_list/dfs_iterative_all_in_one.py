@@ -11,16 +11,16 @@ class Vertex:
 
 class DFS:
 	def __init__(self, directed=False):
-		self.graph_dict = {}
+		self.graph = {}
 		self.directed = directed
 
 	def add_vertex(self, vertex):
-		self.graph_dict[vertex.value] = vertex
+		self.graph[vertex.value] = vertex
 
 	def add_edge(self, from_vertex, to_vertex):
-		self.graph_dict[from_vertex.value].add_edge(to_vertex.value)
+		self.graph[from_vertex.value].add_edge(to_vertex.value)
 		if not self.directed:
-			self.graph_dict[to_vertex.value].add_edge(from_vertex.value)
+			self.graph[to_vertex.value].add_edge(from_vertex.value)
 
 	# DFS algorithm
 	def find_path(self, start_vertex, target_vertex):
@@ -33,7 +33,7 @@ class DFS:
 			if current_vertex == target_vertex:
 				return True
 			else:
-				next_vertices = self.graph_dict[current_vertex].get_edges()
+				next_vertices = self.graph[current_vertex].get_edges()
 				next_vertices = [item for item in next_vertices if item not in seen]
 				start += next_vertices
 		return False
