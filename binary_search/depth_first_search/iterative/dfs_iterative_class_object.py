@@ -3,12 +3,13 @@ class DFS:
         self.value = value
         self.children = []
 
-    def dfs(self, start, target, frontier_stack=[]):
+    def dfs(self, start, target):
+        frontier = []
         start = [start]
-        frontier_stack.append(start)
+        frontier.append(start)
 
-        while frontier_stack:
-            current_path = frontier_stack.pop()
+        while frontier:
+            current_path = frontier.pop()
             current_node = current_path[-1]
             print(f"current_node = {current_node.value}")
             if current_node.value == target:
@@ -17,7 +18,7 @@ class DFS:
                 print(f"child = {child.value}")
                 new_path = current_path.copy()
                 new_path.append(child)
-                frontier_stack.append(new_path)
+                frontier.append(new_path)
 
         return None
 
