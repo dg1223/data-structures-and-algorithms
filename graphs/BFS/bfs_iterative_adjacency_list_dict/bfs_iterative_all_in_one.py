@@ -24,6 +24,7 @@ class BFS:
 		if not self.directed:
 			self.graph_dict[to_vertex.value].add_edge(from_vertex.value)
 
+	# BFS algorithm
 	def find_path(self, start_vertex, target_vertex):
 		start = deque()
 		start.append(start_vertex)
