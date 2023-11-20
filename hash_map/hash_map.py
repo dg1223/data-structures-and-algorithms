@@ -2,7 +2,7 @@
 class Hashmap:
     def __init__(self, array_size=10):
         self.array_size = array_size
-		# lists within the list named 'array'
+        # lists within the list named 'array'
         self.array = [None] * array_size
 
     def _hash(self, key, collisions=0):
@@ -11,7 +11,7 @@ class Hashmap:
         return hash_code + collisions
 
     def compress(self, hashed_key):
-		# value will always be lesser than array size
+        # value will always be lesser than array size
         return hashed_key % self.array_size
 
     def calculate_index(self, key, collisions=0):
@@ -22,9 +22,10 @@ class Hashmap:
     def assign(self, key, value):
         index = self.calculate_index(key)
         key_val = self.array[index]
-
-        # if array index is empty, assign key-val
-		# key-val pair is a list within the list named 'array'
+        '''
+        if array index is empty, assign key-val
+        key-val pair is a list within the list named 'array'
+        '''
         if not key_val:
             self.array[index] = [key, value]
             return
@@ -37,11 +38,11 @@ class Hashmap:
             collisions = 1
             while self.array[index][0] != key:
                 new_index = self.calculate_index(key, collisions)
-                key_val = self.array[new_index]
-                if not key_val:
+                new_key_val = self.array[new_index]
+                if not new_key_val:
                     self.array[new_index] = [key, value]
                     return
-                elif self.array[new_index][0] == key:
+                elif new_key_val[0] == key:
                     self.array[new_index][1] = value
                     return
                 else:
@@ -57,9 +58,13 @@ class Hashmap:
         # key matches, retrieve value
         elif retrieval_key_val[0] == key:
             return retrieval_key_val[1]
-        # different key, it's a collision
+        # different key in the array index -> it's a collision
         else:
             collisions = 1
+            '''
+            We keep probing until we find an empty index or
+            and index with matching key
+            '''
             while retrieval_key_val[0] != key:
                 new_index = self.calculate_index(key, collisions)
                 retrieval_key_val = self.array[new_index]
