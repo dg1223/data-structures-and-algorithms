@@ -40,13 +40,13 @@ class Hashmap:
             We keep probing until we find an empty index or
             and index with matching key
             '''
-            while self.array[index][0] != key:
+            while key_val[0] != key:
                 new_index = self.calculate_index(key, collisions)
-                new_key_val = self.array[new_index]
-                if not new_key_val:
+                key_val = self.array[new_index]
+                if not key_val:
                     self.array[new_index] = [key, value]
                     return
-                elif new_key_val[0] == key:
+                elif key_val[0] == key:
                     self.array[new_index][1] = value
                     return
                 else:
