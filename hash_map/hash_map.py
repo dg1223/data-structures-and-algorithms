@@ -73,7 +73,10 @@ class Hashmap:
 # Test HashMap
 hash_map = Hashmap(20)
 hash_map.assign("gneiss", "metamorphic")
-hash_map.assign("hneisr", "metamorphic")  # collision with "gneiss"
+# collision with "gneiss"
+hash_map.assign("hneisr", "metamorphic")
+# collision with "gneiss" and hneisr"
+hash_map.assign("fneist", "metamorphic")
 hash_map.assign("basalt", "igneous")
 hash_map.assign("casals", "igneous")  # collision with "basalt"
 
