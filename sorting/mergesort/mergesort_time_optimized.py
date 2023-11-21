@@ -32,6 +32,12 @@ def merge(left_sublist, right_sublist):
     right = deque(right_sublist)
 
     while left and right:
+        '''
+        We cannot pop items from left and right yet.
+        Otherwise, after the while loop, we'll have
+        no item left from the other group to add to
+        result.
+        '''
         left_item = left[0]
         right_item = right[0]
 
