@@ -4,8 +4,6 @@ def recursive_bfs(graph, queue, visited):
     if not queue:
         return None
 
-    # either popleft and append or
-    # pop and appendleft
     current_vertex = queue.pop()
     print(current_vertex)
 
