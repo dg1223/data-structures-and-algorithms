@@ -2,10 +2,10 @@ def recursive_postorder_dfs(graph, stack, visited):
     if not stack:
         return None
 
-    current_node = stack.pop()    
+    current_vertex = stack.pop()    
 
-    if current_node in graph:
-        for neighbour in graph[current_node]:
+    if current_vertex in graph:
+        for neighbour in graph[current_vertex]:
             if neighbour not in visited:
                 stack.append(neighbour)
                 visited.add(neighbour)
@@ -13,7 +13,7 @@ def recursive_postorder_dfs(graph, stack, visited):
                 # it reaches the sibling
                 recursive_postorder_dfs(graph, stack, visited)
     
-    print(current_node)
+    print(current_vertex)
 
 def postorder_dfs(structure, start):
     visited = set()
