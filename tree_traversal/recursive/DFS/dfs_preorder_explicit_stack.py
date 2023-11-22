@@ -1,4 +1,5 @@
 def recursive_preorder_dfs(graph, stack, visited):
+    # base case
     if not stack:
         return None
 
@@ -14,11 +15,15 @@ def recursive_preorder_dfs(graph, stack, visited):
                 # it reaches the sibling
                 recursive_preorder_dfs(graph, stack, visited)
 
-def preorder_dfs(structure, start):
+def preorder_dfs(graph, start):
+    # Edge case: empty graph as input
+    if start not in graph:
+        print("Graph is empty")
+        return None
     visited = set()
     stack = [start]
     visited.add(start)
-    recursive_preorder_dfs(structure, stack, visited)
+    recursive_preorder_dfs(graph, stack, visited)
 
 ## Create a graph represented as an adjacency list
 #graph = {
