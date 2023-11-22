@@ -19,7 +19,8 @@ def recursive_bfs(graph, queue, visited):
 
 def bfs(graph, start):
     visited = set()
-    queue = deque([start])
+    queue = deque()
+    queue.append(start)
     visited.add(start)
     recursive_bfs(graph, queue, visited)
 
