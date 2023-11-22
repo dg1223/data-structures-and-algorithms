@@ -5,7 +5,7 @@ class BFS:
         self.value = value
         self.children = []
 
-    def bfs(self, root, target):
+    def bfs(self, start, target):
         frontier = deque()
         '''
         The deque structure is basically a (doubly-linked)
@@ -21,7 +21,7 @@ class BFS:
         algos. So, we only need a 1-D list/array as we don't 
         need to hold additional lists.		
         '''
-        start = [root]
+        start = [start]
         frontier.appendleft(start)
 
         while frontier:
