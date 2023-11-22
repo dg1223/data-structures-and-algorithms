@@ -2,11 +2,11 @@ def recursive_preorder_dfs(graph, stack, visited):
     if not stack:
         return None
 
-    current_node = stack.pop()
-    print(current_node)
+    current_vertex = stack.pop()
+    print(current_vertex)
 
-    if current_node in graph:
-        for neighbour in graph[current_node]:
+    if current_vertex in graph:
+        for neighbour in graph[current_vertex]:
             if neighbour not in visited:
                 stack.append(neighbour)
                 visited.add(neighbour)
