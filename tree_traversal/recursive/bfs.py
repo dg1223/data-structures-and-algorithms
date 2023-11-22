@@ -7,6 +7,11 @@ def recursive_bfs(graph, queue, visited):
     current_vertex = queue.pop()
     print(current_vertex)
 
+    '''
+    Leaf nodes may or may not be intialized as keys in the
+    adjacency list dictionary. If they are not keys, then
+    we don't need to search for their neighbours.
+    '''
     if current_vertex in graph:
         for neighbour in graph[current_vertex]:
             if neighbour not in visited:
