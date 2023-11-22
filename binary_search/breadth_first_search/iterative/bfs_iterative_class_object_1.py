@@ -7,6 +7,20 @@ class BFS:
 
     def bfs(self, root, target):
         frontier = deque()
+        '''
+        The deque structure is basically a (doubly-linked)
+        list. We need to keep track of each path separately. 
+        For BFS, a (frontier) queue does the job. So, we 
+        need each queue to be a list so that we can access
+        individial nodes from any list. As a result, the 
+        frontier queue becomes a 2-D list or array.
+        On the contrary, the data structure to hold the tree  
+        is different for tree traversal algos where we 
+        initialize the tree as a graph using adjacency lists. 
+        We also don't need to store any path for traversal 
+        algos. So, we only need a 1-D list/array as we don't 
+        need to hold additional lists.		
+        '''
         start = [root]
         frontier.appendleft(start)
 
