@@ -11,13 +11,13 @@ def inorder_dfs(graph, start):
     recursive_inorder_dfs(graph, start)
 
 tree = {
-    'A': ('B', 'C'),
-    'B': ('D', 'E'),
-    'C': ('F', 'G'),
-    'D': (None, None),
-    'E': (None, None),
-    'F': (None, None),
-    'G': (None, None)
+    'B': ['D', 'E'],
+    'A': ['B', 'C'],
+    'C': ['F', 'G'],
+    'D': [None, None],
+    'E': [None, None],
+    'F': [None, None],
+    'G': [None, None]
 }
 
 # Call in-order DFS starting from node 'A'
