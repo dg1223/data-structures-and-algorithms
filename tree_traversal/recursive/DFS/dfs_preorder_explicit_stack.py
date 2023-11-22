@@ -42,5 +42,7 @@ tree = {
     'C': ['F', 'G']
 }
 
+#tree = {}
+
 # Call DFS starting from node 'A'
 preorder_dfs(tree, 'A')
