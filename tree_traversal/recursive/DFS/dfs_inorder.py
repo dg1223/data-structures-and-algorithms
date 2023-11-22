@@ -7,8 +7,8 @@ def recursive_inorder_dfs(graph, current_vertex):
         if right_child:
             recursive_inorder_dfs(graph, right_child)
 
-def inorder_dfs(structure, start):
-    recursive_inorder_dfs(structure, start)
+def inorder_dfs(graph, start):
+    recursive_inorder_dfs(graph, start)
 
 tree = {
     'A': ('B', 'C'),
