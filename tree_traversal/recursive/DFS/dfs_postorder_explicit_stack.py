@@ -1,4 +1,5 @@
 def recursive_postorder_dfs(graph, stack, visited):
+    # base case
     if not stack:
         return None
 
@@ -15,11 +16,16 @@ def recursive_postorder_dfs(graph, stack, visited):
     
     print(current_vertex)
 
-def postorder_dfs(structure, start):
+def postorder_dfs(graph, start):
+    # Edge case: empty graph as input
+    if start not in graph:
+        print("Graph is empty")
+        return None
+
     visited = set()
     stack = [start]
     visited.add(start)
-    recursive_postorder_dfs(structure, stack, visited)
+    recursive_postorder_dfs(graph, stack, visited)
 
 ## Create a graph represented as an adjacency list
 #graph = {
@@ -37,6 +43,8 @@ tree = {
     'B': ['D', 'E'],
     'C': ['F', 'G']
 }
+
+#tree = {}
 
 # Call DFS starting from node 'A'
 postorder_dfs(tree, 'A')
