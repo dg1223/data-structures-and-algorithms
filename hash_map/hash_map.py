@@ -43,6 +43,10 @@ class Hashmap:
                 key_val = self.array[new_index]
                 if not key_val:
                     self.array[new_index] = [key, value]
+                    '''
+                    We need to break out of the loop since key-value
+                    assignment is complete.
+                    '''
                     return None
                 elif key_val[0] == key:
                     self.array[new_index][1] = value
