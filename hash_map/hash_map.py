@@ -28,11 +28,9 @@ class Hashmap:
         '''
         if not key_val:
             self.array[index] = [key, value]
-            return
         # same key
         elif key_val[0] == key:
             self.array[index][1] = value
-            return
         # collision
         else:
             collisions = 1
@@ -45,10 +43,10 @@ class Hashmap:
                 key_val = self.array[new_index]
                 if not key_val:
                     self.array[new_index] = [key, value]
-                    return
+                    return None
                 elif key_val[0] == key:
                     self.array[new_index][1] = value
-                    return
+                    return None
                 else:
                     collisions += 1
 
