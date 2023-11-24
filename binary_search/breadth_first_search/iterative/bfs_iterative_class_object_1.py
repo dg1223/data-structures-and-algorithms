@@ -5,8 +5,7 @@ class BFS:
         self.value = value
         self.children = []
 
-    def bfs(self, start, target):
-        frontier = deque()
+    def bfs(self, start, target):        
         '''
         The deque structure is basically a (doubly-linked)
         list. We need to keep track of each path separately. 
@@ -22,6 +21,7 @@ class BFS:
         need to hold additional lists.		
         '''
         start = [start]
+        frontier = deque()
         frontier.appendleft(start)
 
         while frontier:
