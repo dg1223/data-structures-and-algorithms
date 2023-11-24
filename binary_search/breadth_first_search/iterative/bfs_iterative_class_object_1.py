@@ -21,6 +21,17 @@ class BFS:
         need to hold additional lists.		
         '''
         start = [start]
+        '''
+        If we do frontier = deque(start), then deque() unpacks
+        the list 'start' and appends its contents from left to
+        right inside it. As a result, when we pop from the 
+        deque, it returns individual item (node object in our 
+        case) which is not iterable when we do current_path[-1]
+        Initializing an empty deque first and then appending 
+        start appends the list [start] to the deque which 
+        remains iterable when popped later.
+        '''
+        #frontier = deque(start)
         frontier = deque()
         frontier.appendleft(start)
 
