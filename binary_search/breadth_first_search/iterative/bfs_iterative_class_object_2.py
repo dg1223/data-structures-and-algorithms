@@ -19,6 +19,8 @@ class BFS:
                 new_path = current_path.copy()
                 new_path.append(child)
                 frontier.appendleft(new_path)
+
+        # No necessary but good for readability
         return None
 
 sample_root_node = BFS("Home")
