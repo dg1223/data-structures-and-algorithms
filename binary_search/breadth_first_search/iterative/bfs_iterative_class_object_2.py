@@ -42,5 +42,5 @@ if not path_to_target:
     print("No path found")
 else:
     print("Path found!")
-    for node in path_to_target:
-        print(node.value)
+    string = " -> ".join(node.value for node in path_to_target)
+    print(string)
