@@ -21,6 +21,9 @@ class DFS:
 			found_path = self.dfs_recursive(stack, target)
 			if found_path:
 				return found_path
+		
+		# No necessary but good for readability
+		return None
 
 root = DFS('A')
 two = DFS("B")
