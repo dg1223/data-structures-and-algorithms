@@ -52,6 +52,9 @@ class BFS:
 					return new_path
 				frontier.appendleft(new_path)
 
+		# No necessary but good for readability
+		return None
+
 root = BFS('A')
 two = BFS("B")
 three = BFS("C")
