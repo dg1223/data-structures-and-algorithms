@@ -66,5 +66,5 @@ if not path:
     print(f"No path found from {root.value} to F")
 else:
     print(f"Path found from {root.value} to F")
-    for node in path:
-        print(node.value)
+    string = " -> ".join(node.value for node in path)
+    print(string)
