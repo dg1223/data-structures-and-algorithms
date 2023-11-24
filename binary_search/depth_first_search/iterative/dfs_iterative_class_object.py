@@ -34,6 +34,7 @@ class DFS:
 				#frontier.append(child)
 				#frontier.append(path + [child])
 
+		# No necessary but good for readability
 		return None
 
 root = DFS('A')
