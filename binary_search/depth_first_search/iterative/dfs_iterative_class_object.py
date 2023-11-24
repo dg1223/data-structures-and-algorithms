@@ -34,6 +34,8 @@ class DFS:
 				#frontier.append(child)
 				#frontier.append(path + [child])
 
+		return None
+
 root = DFS('A')
 two = DFS("B")
 three = DFS("C")
