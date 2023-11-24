@@ -1,32 +1,43 @@
 class DFS:
-    def __init__(self, value):
-        self.value = value
-        self.children = []
+	def __init__(self, value):
+		self.value = value
+		self.children = []
 
-    def dfs(self, start, target):
-        frontier = []
-        start = [start]
-        frontier.append(start)
+	def dfs(self, start_node, target):
+		path = [start_node]
 
-        while frontier:
-            current_path = frontier.pop()
-            current_node = current_path[-1]
-            print(f"current_node = {current_node.value}")
-            if current_node.value == target:
-                return current_path
-            for child in current_node.children:
-                print(f"child = {child.value}")
-                new_path = current_path.copy()
-                new_path.append(child)
-                frontier.append(new_path)
+		# No need to proceed if we already found a match
+		if start_node.value == target:
+			print(f"Visiting {start_node.value}")
+			return path
+		
+		'''
+		We can either store the start node and path as a 
+		tuple and pop both at the same time using double 
+		assignment or we can store them as individual 
+		items in a list and pop them separately using 
+		their indices.
+		We also have to append child and path accordingly.
+		'''
+		frontier = [(start_node, path)]
+		#frontier = [start_node, path]
 
-        return None
-
+		while frontier:
+			current_node, path = frontier.pop()
+			#path = frontier.pop()
+			#current_node = frontier.pop()			
+			print(f"Visiting : {current_node.value}")
+			if current_node.value == target:
+				return path
+			for child in current_node.children:				
+				frontier.append((child, path + [child]))
+				#frontier.append(child)
+				#frontier.append(path + [child])
 
 root = DFS('A')
 two = DFS("B")
 three = DFS("C")
-root.children = [three, two]
+root.children = [two, three]
 four = DFS("D")
 five = DFS("E")
 six = DFS("F")
@@ -34,10 +45,48 @@ seven = DFS("G")
 two.children = [five, four]
 three.children = [seven, six]
 
-frontier = root.dfs(root, 'F')
-if not frontier:
-    print(f"No path found from {root.value} to F")
+start = root
+target = 'F'
+path = root.dfs(start, target)
+
+if path:
+	print(f"Path found from {start.value} to {target}")
+
+	string = " -> ".join(node.value for node in path)
+
+	print(string)
 else:
-    print(f"Path found from {root.value} to F")
-    for node in frontier:
-        print(node.value)
+	print(f"No path found from {start.value} to {target}")
+
+
+'''
+
+		A
+	  /   \
+	 B     C
+    / \   / \
+   D   E F   G
+
+Find path from A -> F
+
+|                 |	   |                 |			   |                   |	 |                   |					|                     |
+|-----------------|	   |-----------------|			   |-------------------|	 |-------------------|					|---------------------|
+| 				  |->  | 	  	 		 |			   | 				   |-> 	 | 	  			  	 |					|				      |
+|-----------------|	   |-----------------|			   |-------------------|	 |-------------------| -> print: C 		| for loop:		      |
+| 				  |	   | 	 pop(F)		 |-> print: A  | for loop:		   |	 | 	     pop(F)	  	 |	 path: [A, C]	| F = [(B, [A, B]),   |
+|-----------------|	   |				 |   path: [A] | F = [(B, [A, B]), |	 |				  	 |					|     (G, [A, C, G]), | -> print: A
+| F = [(A, [A])]  |	   | 	 F = [] 	 |			   |     (C, [A, C])]  |	 | F = [(B, [A, B])] |					|     (F, [A, C, F])] |
+-------------------	   -------------------			   ---------------------	 ---------------------					-----------------------
+
+|                 	  |			   		 |					|
+|---------------------|			   		 |					|
+| 				  	  |-> print F  		 |					|
+|       pop(F)		  |	path: [A, C, F]	 | return [A, C, F]	|
+|				  	  |			   		 |					|
+| F = [(B, [A, B]),   |			   		 |					|
+|     (G, [A, C, G]), |			   		 |					|
+-----------------------			   		 --------------------
+
+A, C, F
+
+'''
