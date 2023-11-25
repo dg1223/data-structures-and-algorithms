@@ -29,7 +29,13 @@ class BFS:
 
 		return self.bfs_recursive(frontier, target)
 
-	def bfs_recursive(self, queue, target):		
+	def bfs_recursive(self, queue, target):
+		'''
+		Edge case:
+		Check whether queue is empty or not. If we 
+		don't check, we'll get an error if the 
+		tree doesn't have any node except for root.
+		'''
 		if not queue:
 			return None
 
