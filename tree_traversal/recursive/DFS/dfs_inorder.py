@@ -1,5 +1,4 @@
 def inorder_dfs(tree, current_vertex):
-	# Edge case: input tree is empty
 	if current_vertex in tree:
 		left_neighbour, right_neighbour = tree[current_vertex]
 		if left_neighbour:
@@ -7,9 +6,14 @@ def inorder_dfs(tree, current_vertex):
 		print(current_vertex)
 		if right_neighbour:
 			inorder_dfs(tree, right_neighbour)
+	# Edge case: input tree is empty
+	else:
+		print("Tree is empty")
+		return None
 
 def dfs(tree, start):
 	inorder_dfs(tree, start)
+
 
 tree = {
     'B': ['D', 'E'],
