@@ -5,27 +5,7 @@ class BFS:
 		self.value = value
 		self.children = []
 
-	def bfs_recursive(self, frontier, target):
-		if not frontier:
-			return None
-
-		current_path = frontier.pop()
-		print(f"{current_path = }")
-		current_node = current_path[-1]
-		print(f"Visiting node: {current_node.value}")
-
-		if current_node.value == target:
-			return current_path
-
-		for child in current_node.children:
-			new_path = current_path.copy()
-			new_path.append(child)
-			frontier.appendleft(new_path)
-
-		return self.bfs_recursive(frontier, target)
-
-	def bfs(self, start, target):
-		frontier = deque()
+	def bfs(self, start_node, target):
 		'''
 		The deque structure is basically a (doubly-linked)
 		list. We need to keep track of each path separately. 
@@ -40,11 +20,30 @@ class BFS:
 		algos. So, we only need a 1-D list/array as we don't 
 		need to hold additional lists.		
 		'''
-		start = [start]
-		frontier.appendleft(start)
-		print(frontier)
+		path = [start_node]
+		if start_node.value == target:
+			print(f"Visiting {start_node.value}")
+			return path
+		frontier = deque()
+		frontier.append(path)
 
 		return self.bfs_recursive(frontier, target)
+
+	def bfs_recursive(self, queue, target):		
+		if not queue:
+			return None
+
+		path = queue.pop()
+		current_node = path[-1]
+		print(f"Visiting {current_node.value}")
+		if current_node.value == target:
+			return path
+		for child in current_node.children:
+			new_path = path + [child]
+			queue.appendleft(new_path)
+
+		return self.bfs_recursive(queue, target)
+
 
 root = BFS('A')
 two = BFS("B")
