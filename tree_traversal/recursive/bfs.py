@@ -1,6 +1,10 @@
 from collections import deque
 
 def bfs(graph, start):
+    if start not in graph:
+        print("Graph is empty")
+        return None
+
     visited = set()
     '''
     For tree traversal algos, we initialize the tree as 
@@ -48,6 +52,7 @@ graph = {
     'E': ['B', 'F'],
     'F': ['C', 'E']
 }
+#graph = {}
 bfs(graph, 'A')
 
 #tree = {
