@@ -1,15 +1,15 @@
-def inorder_dfs(graph, current_vertex):
+def inorder_dfs(tree, current_vertex):
 	# Edge case: input tree is empty
-	if current_vertex in graph:
-		left_neighbour, right_neighbour = graph[current_vertex]
+	if current_vertex in tree:
+		left_neighbour, right_neighbour = tree[current_vertex]
 		if left_neighbour:
-			inorder_dfs(graph, left_neighbour)
+			inorder_dfs(tree, left_neighbour)
 		print(current_vertex)
 		if right_neighbour:
-			inorder_dfs(graph, right_neighbour)
+			inorder_dfs(tree, right_neighbour)
 
-def dfs(graph, start):
-	inorder_dfs(graph, start)
+def dfs(tree, start):
+	inorder_dfs(tree, start)
 
 tree = {
     'B': ['D', 'E'],
