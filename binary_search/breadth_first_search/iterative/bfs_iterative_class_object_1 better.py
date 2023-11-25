@@ -72,14 +72,15 @@ path = root.bfs(start, target)
 
 if path:
 	print(f"Path found from {start.value} to {target}")
-	string = ""
-	length = len(path)
-	for node in path:		
-		if length == 1:
-			string += node.value
-		else:
-			string += node.value + " -> "
-		length -= 1;
+	string = " -> ".join(node.value for node in path)
+	#string = ""
+	#length = len(path)
+	#for node in path:		
+	#	if length == 1:
+	#		string += node.value
+	#	else:
+	#		string += node.value + " -> "
+	#	length -= 1;
 	print(string)
 else:
 	print(f"No path found from {start.value} to {target}")
