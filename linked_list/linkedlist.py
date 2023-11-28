@@ -9,6 +9,17 @@ class LinkedList:
         new_node.set_next_node(self.head)
         self.head = new_node
 
+    def append(self, value):
+        new_node = ListNode(value)
+        if not self.head:
+            self.head = new_node
+            return
+
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+
     def stringify_list(self):
         string = ""
         current_node = self.head
