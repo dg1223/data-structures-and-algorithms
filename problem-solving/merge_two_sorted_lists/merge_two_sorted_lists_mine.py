@@ -30,7 +30,6 @@ class Solution:
             return head1 if not head2 else head2
 
         result = LinkedList()
-        count = 0
         while head1 and head2:
             head1_val = head1.val
             head2_val = head2.val
