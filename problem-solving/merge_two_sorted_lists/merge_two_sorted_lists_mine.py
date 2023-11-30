@@ -15,10 +15,8 @@ class LinkedList:
             return
 
         last_node = self.head
-
         while last_node.next:
             last_node = last_node.next
-
         last_node.next = new_node
 
 class Solution:
@@ -40,14 +38,13 @@ class Solution:
                 result.append(head2_val)
                 head2 = head2.next
 
-        if head1:
-            while head1:
-                result.append(head1.val)
-                head1 = head1.next
-        elif head2:
-            while head2:
-                result.append(head2.val)
-                head2 = head2.next
+        while head1:
+            result.append(head1.val)
+            head1 = head1.next
+
+        while head2:
+            result.append(head2.val)
+            head2 = head2.next
 
         # skip None from beginning
         return result.head.next
