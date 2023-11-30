@@ -6,7 +6,7 @@
 
 class LinkedList:
     def __init__(self, value=None):
-        self.head = ListNode(value)
+        self.head = ListNode()
         
     def append(self, value):
         new_node = ListNode(value)
@@ -15,8 +15,10 @@ class LinkedList:
             return
 
         last_node = self.head
+
         while last_node.next:
             last_node = last_node.next
+
         last_node.next = new_node
 
 class Solution:
@@ -24,10 +26,8 @@ class Solution:
         if not head1 and not head2:
             return None
         
-        if not head1:
-            return head2
-        elif not head2:
-            return head1
+        if not head1 or not head2:
+            return head1 if not head2 else head2
 
         result = LinkedList()
         count = 0
