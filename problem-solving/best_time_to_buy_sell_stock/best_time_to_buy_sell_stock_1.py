@@ -11,6 +11,17 @@ def maxProfit(self, prices: List[int]) -> int:
 
 		result = prices[sell_idx] - prices[buy_idx]
 
+		'''
+		Algorithm:
+		When you have your first potential gain (profit),
+		hold that buy price and check if there is any 
+		other price that further increases your gains.
+		When your result (sell - buy) is -ve, it means
+		there's a price that's even lower than your 
+		current buy price. So, you replace your current
+		buy price with that new price just to check if 
+		you can get a better buy price.
+		'''
 		if result > profit:
 			profit = result
 
