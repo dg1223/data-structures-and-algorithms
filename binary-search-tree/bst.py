@@ -41,10 +41,10 @@ class BST:
 
     def traverse_dfs_inorder(self):
         if self.left:
-            self.left.traverse_dfs()
+            self.left.traverse_dfs_inorder()
         print(f"Depth = {self.depth}, Value = {self.value}")
         if self.right:
-            self.right.traverse_dfs()
+            self.right.traverse_dfs_inorder()
 
 
 # Test 1
@@ -57,4 +57,4 @@ tree.insert(56)
 tree.insert(74)
 
 # Print depth-first traversal:
-tree.traverse_dfs()
+tree.traverse_dfs_inorder()
