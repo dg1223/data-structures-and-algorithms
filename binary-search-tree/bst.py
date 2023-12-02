@@ -52,9 +52,6 @@ class BST:
             self.right.traverse_dfs()
 
 
-
-root = BST(100)
-
 # Test 1
 tree = BST(48)
 tree.insert(24)
