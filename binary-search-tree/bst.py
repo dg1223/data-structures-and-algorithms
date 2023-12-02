@@ -39,7 +39,7 @@ class BST:
         else:
             return None
 
-    def traverse_dfs(self):
+    def traverse_dfs_inorder(self):
         if self.left:
             self.left.traverse_dfs()
         print(f"Depth = {self.depth}, Value = {self.value}")
