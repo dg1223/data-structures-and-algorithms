@@ -22,17 +22,12 @@ class BST:
             else:
                 # iterate because current node has value
                 self.left.insert(value)
-        elif value > self.value:
+        else:
             if self.right is None:
                 self.right = BST(value, self.depth+1)
                 print(f'Tree node {value} added to the right of {self.value} at depth {self.depth + 1}')
             else:
-                self.right.insert(value)        
-        #This condition seems to fail in checking whether a right node exists,
-        #It could be omitted and the previous elif can just be an else statement.
-        #See practice copy for this modified approach.
-        else:
-            self.right.insert(value)
+                self.right.insert(value)
 
     def get_node_by_value(self, value):
         if value == self.value:
