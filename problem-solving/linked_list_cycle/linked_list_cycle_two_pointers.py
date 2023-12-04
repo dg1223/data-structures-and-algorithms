@@ -9,14 +9,12 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head:
             return False
-        visited = set()
-        current_node = head
-        visited.add(current_node)
-        while current_node:
-            next_node = current_node.next
-            if next_node in visited:
+        fast_pointer = head
+        slow_pointer = head
+        while fast_pointer and fast_pointer.next:			
+            slow_pointer = slow_pointer.next
+            fast_pointer = fast_pointer.next.next
+            if fast_pointer == slow_pointer:
                 return True
-            visited.add(next_node)
-            current_node = next_node
         
-        return False 
+        return False
