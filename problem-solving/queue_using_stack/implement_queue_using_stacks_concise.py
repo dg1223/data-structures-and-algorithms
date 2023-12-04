@@ -1,3 +1,10 @@
+'''
+Time:
+Pop -> Amortized O(1), Worst-case O(n);
+Push -> O(1)
+Space: O(N)
+'''
+
 class MyQueue:
 
     def __init__(self):
