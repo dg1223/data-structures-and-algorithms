@@ -6,8 +6,8 @@ def maxProfit(self, prices: List[int]) -> int:
 	profit = 0
 	for idx in range(length-1):
 		if idx == 0:
-			buy_idx = idx
-			sell_idx = idx + 1
+			buy_idx = 0
+			sell_idx = 1
 
 		result = prices[sell_idx] - prices[buy_idx]
 
