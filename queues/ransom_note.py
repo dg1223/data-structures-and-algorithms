@@ -1,3 +1,5 @@
+# find if str1 is a subset of str2
+
 class Solution:
     def fill_freq_array(self, string, array):
         for char in string:
