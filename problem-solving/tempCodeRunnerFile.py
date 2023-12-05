@@ -1,1 +1,0 @@
-print(f"row = {col_counter}, space = {spaces}")
