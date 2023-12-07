@@ -2,25 +2,20 @@
 O(N) time and space
 '''
 
-def create_hashmap_of_string(string, hashmap):
-	for char in string:
-		if char in hashmap:
-			hashmap[char] += 1
-		else:
-			hashmap[char] = 1
+from collections import Counter
 
-def longest_palindrome_length(string):
-	length = len(string)
-	if length == 1:
-		return 1
+class Solution:
+    def longestPalindrome(self, string: str) -> int:
+        length = len(string)
+        if length == 1:
+            return 1
 
-	hashmap = {}
-	create_hashmap_of_string(string, hashmap)
+        hashmap = {}
+        hashmap.update(Counter(string))
 
-	odd = sum(( 1 for char in hashmap if hashmap[char] % 2 == 1  ))
-	# breakpoint()
+        odd = sum(( 1 for char in hashmap if hashmap[char] % 2 == 1  ))
 
-	return (length - odd + 1) if odd else length
+        return (length - odd + 1) if odd else length
 
 # bbb, ababacd
 print(longest_palindrome_length("abc"))
