@@ -12,6 +12,9 @@ class Solution:
         prev = None
 
         while current:
+			# remember: p c n
+			# shift them by 1 node on every iteration
+			# exception: current.next = prev
             next = current.next
             current.next = prev
             prev = current
