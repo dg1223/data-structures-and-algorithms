@@ -1,3 +1,8 @@
+'''
+Average O(N), amortized O(N^2) time
+O(N) space
+'''
+
 def create_hashmap_of_string(string, hashmap):
 	for char in string:
 		if char in hashmap:
