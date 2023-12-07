@@ -1,6 +1,5 @@
 '''
-Average O(N), amortized O(N^2) time
-O(N) space
+O(N) time and space
 '''
 
 def create_hashmap_of_string(string, hashmap):
