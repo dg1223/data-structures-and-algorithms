@@ -35,8 +35,8 @@ class Solution:
 				child_i = first + direction[0]
 				child_j = second + direction[1]
 
-			if self.is_valid(child_i, child_j) and not self.visited(child_i, child_j):
-				queue.appendleft((child_i, child_j))
-				self.visited[child_i][child_j] = True
-				self.distance[child_i][child_j] = self.distance[first][second] + 1
+				if self.is_valid(child_i, child_j) and not self.visited(child_i, child_j):
+					queue.appendleft((child_i, child_j))
+					self.visited[child_i][child_j] = True
+					self.distance[child_i][child_j] = self.distance[first][second] + 1
 
