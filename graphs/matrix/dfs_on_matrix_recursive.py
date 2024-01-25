@@ -22,5 +22,5 @@ class Solution:
 			child_i = source_i + direction[0]
 			child_j = source_j + direction[1]
 
-		if self.is_valid(child_i, child_j) and not self.visited[child_i][child_j]:
-			self.dfs(child_i, child_j)
+			if self.is_valid(child_i, child_j) and not self.visited[child_i][child_j]:
+				self.dfs(child_i, child_j)
