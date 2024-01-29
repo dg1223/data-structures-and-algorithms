@@ -1,3 +1,7 @@
+'''
+O(V+E) time, O(V) space
+'''
+
 def dfs(graph, source, visited=None):
     if not visited:
         visited = set()
