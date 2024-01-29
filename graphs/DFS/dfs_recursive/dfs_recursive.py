@@ -14,13 +14,24 @@ def dfs(graph, source, destination, visited=None):
             if path:
                 return path
 
-graph = {
-  'lava': set(['sharks', 'piranhas']),
-  'sharks': set(['lava', 'bees', 'lasers']),
-  'piranhas': set(['lava', 'crocodiles']),
-  'bees': set(['sharks']),
-  'lasers': set(['sharks', 'crocodiles']),
-  'crocodiles': set(['piranhas', 'lasers'])
-  }
+#graph = {
+#  'lava': set(['sharks', 'piranhas']),
+#  'sharks': set(['lava', 'bees', 'lasers']),
+#  'piranhas': set(['lava', 'crocodiles']),
+#  'bees': set(['sharks']),
+#  'lasers': set(['sharks', 'crocodiles']),
+#  'crocodiles': set(['piranhas', 'lasers'])
+#}
 
-print(dfs(graph, "crocodiles", "bees"))
+#print(dfs(graph, "crocodiles", "bees"))
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+print(dfs(graph, 'A', 'F'))
