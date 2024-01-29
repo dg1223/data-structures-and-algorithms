@@ -1,5 +1,6 @@
 '''
 Using adjacency list, queue and while loop
+O(V+E) time, O(V) space
 '''
 
 from collections import deque
