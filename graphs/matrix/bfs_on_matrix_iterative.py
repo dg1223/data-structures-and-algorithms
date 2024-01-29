@@ -1,6 +1,3 @@
-# matrix should be given as input
-# matrix = [ ['.' for _ in range(MAX_ROW)] for _ in range(MAX_COL)]
-
 from collections import deque
 
 '''
