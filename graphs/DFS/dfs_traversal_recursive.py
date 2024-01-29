@@ -31,4 +31,4 @@ graph = {
     'F': ['C', 'E']
 }
 
-print(dfs(graph, 'A'))
+dfs(graph, 'A')
