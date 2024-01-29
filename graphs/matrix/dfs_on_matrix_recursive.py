@@ -1,6 +1,3 @@
-# matrix should be given as input
-#matrix = [ ['.' for _ in range(MAX_ROW)] for _ in range(MAX_COL)]
-
 class DFS:
 	def __init__(self, matrix, MAX_ROW=20, MAX_COL=20):
 		self.MAX_ROW = MAX_ROW
