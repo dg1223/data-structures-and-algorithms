@@ -3,7 +3,6 @@ from collections import deque
 class BFS:
     def __init__(self, graph):
         length = len(graph)
-        self.level = {}
         self.parent_array = {}
         self.visited = set()
         self.graph = graph
@@ -14,7 +13,6 @@ class BFS:
 
         queue.appendleft(start)
         self.visited.add(start)
-        self.level[start] = 0
 
         while queue:
             parent = queue.pop()            
@@ -22,7 +20,6 @@ class BFS:
                 if child not in self.visited:
                     queue.appendleft(child)
                     self.visited.add(child)
-                    self.level[child] = self.level[parent] + 1
                     self.parent_array[child] = parent
 
     def print_shortest_path(self, start, target):
