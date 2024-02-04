@@ -3,8 +3,8 @@ from collections import deque
 class BFS:
     def __init__(self, graph):
         length = len(graph)
-        self.level = [-1 for _ in range(length)]
-        self.parent_array = [-1 for _ in range(length)]
+        self.level = {}
+        self.parent_array = {}
         self.visited = set()
         self.graph = graph
 
@@ -17,7 +17,7 @@ class BFS:
         self.level[start] = 0
 
         while queue:
-            parent = queue.pop()
+            parent = queue.pop()            
             for child in self.graph[parent]:
                 if child not in self.visited:
                     queue.appendleft(child)
@@ -27,23 +27,47 @@ class BFS:
 
     def print_shortest_path(self, start, target):
         # run BFS to populate parent_array
-        start_index = list(self.graph.keys()).index(start)
-        target_index = list(self.graph.keys()).index(target)
-        self.bfs(start_index, target_index)
+        self.bfs(start, target)
 
         path = []
-        while target != -1:
-            path.append(target_index)
-            target_index = self.parent_array[target_index]
+        while target != start:
+            path.append(target)
+            target = self.parent_array[target]
+
+        # include the source vertex
+        path.append(start)
 
         path = path[::-1]
 
-        for vertex_index in path:
-            vertices = list(self.graph.keys())
-            print(vertices[vertex_index])
+        for vertex in path:
+            print(vertex)
 
+'''
+			A
+		/	  	\
+	   B     	 C
+	 / 	 \     /
+	D     E - F
+'''
 
-graph = {
+graph_1 = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D', 'E'],
+    'C': ['A', 'F'],
+    'D': ['B'],
+    'E': ['B', 'F'],
+    'F': ['C', 'E']
+}
+
+'''
+		   Lava
+		/	   	 \
+	   S     	  P
+	 / 	 \      /
+	B    Ls -- C
+'''
+
+graph_2 = {
     'lava': set(['sharks', 'piranhas']),
     'sharks': set(['lava', 'bees', 'lasers']),
     'piranhas': set(['lava', 'crocodiles']),
@@ -52,5 +76,8 @@ graph = {
     'crocodiles': set(['piranhas', 'lasers'])
   }
 
-shortest_path = BFS(graph)
+shortest_path = BFS(graph_1)
+shortest_path.print_shortest_path("A", "F")
+print()
+shortest_path = BFS(graph_2)
 shortest_path.print_shortest_path("crocodiles", "bees")
