@@ -58,9 +58,36 @@ graph_2 = {
      '6': ['3', '5']
 }
 
+print()
 '''
 The for loop takes care disconnected components
 '''
 for vertex in graph_2:
 	if vertex not in visited:
 		dfs(graph_2, vertex)
+
+'''
+Directed graph
+
+		 0	    3
+		/	 / 	   \
+	   .	.		.
+	   1    4 	    6
+	  /	     \     /
+	 .		  .   .
+	 2          5
+'''
+
+graph_3 = {
+     '0': ['1'],
+     '1': ['2'],
+	 '2': [],
+     '3': ['4'],
+     '4': ['5'],
+     '5': ['6'],
+     '6': ['3']
+}
+
+for vertex in graph_3:
+	if vertex not in visited:
+		dfs(graph_3, vertex)
