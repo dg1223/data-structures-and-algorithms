@@ -29,8 +29,7 @@ class DFS:
 		num_components = 0
 		for row in range(self.length_x):
 			for col in range(self.length_y):				
-				if not self.visited[row][col] and self.matrix[row][col] != '#':					
-					#print((row, col), self.matrix[row][col])
+				if not self.visited[row][col] and self.matrix[row][col] != '#':
 					self.dfs(row, col)
 					num_components += 1
 
