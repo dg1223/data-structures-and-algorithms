@@ -67,5 +67,29 @@ graph_2 = {
 }
 
 visited = set()
-components = count_components(graph_2, 'A', visited)
+components = count_components(graph_2, '0', visited)
+print(f"{components = }")
+
+
+'''
+         0	    3		7
+        /	 / 	   \
+       1    4 	    6
+      /	     \     /
+     2          5
+'''
+
+graph_3 = {
+     '0': ['1'],
+     '1': ['0', '2'],
+     '2': ['1'],
+     '3': ['4', '6'],
+     '4': ['3', '5'],
+     '5': ['4', '6'],
+     '6': ['3', '5'],
+	 '7': []
+}
+
+visited = set()
+components = count_components(graph_3, '0', visited)
 print(f"{components = }")
