@@ -7,15 +7,15 @@ from source to target
 
 class BFS:
 	def __init__(self, matrix, MAX_ROW=20, MAX_COL=20):
-		self.MAX_ROW = MAX_ROW
-		self.MAX_COL = MAX_COL
-		self.visited = [ [False for _ in range(MAX_ROW)] for _ in range(MAX_COL) ]
+		self.rows = len(matrix)
+		self.cols = len(matrix[0])
+		self.visited = [ [False] * self.cols for _ in range(self.rows) ]
 		self.DIRECTIONS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 		self.matrix = matrix
 
 	# check corners and edges
 	def is_valid(self, child_i, child_j):
-		return child_i >= 0 and child_i < len(self.matrix) and child_j >= 0 and child_j < len(self.matrix[0])
+		return child_i >= 0 and child_i < self.rows and child_j >= 0 and child_j < self.cols
 
 	# inputs are index [x, y]
 	def bfs(self, source_i, source_j):
