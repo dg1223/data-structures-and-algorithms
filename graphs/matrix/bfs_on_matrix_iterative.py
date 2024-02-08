@@ -11,7 +11,6 @@ class BFS:
 		self.MAX_COL = MAX_COL
 		self.visited = [ [False for _ in range(MAX_ROW)] for _ in range(MAX_COL) ]
 		self.DIRECTIONS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-		self.distance = [ [-1 for _ in range(MAX_ROW)] for _ in range(MAX_COL) ]
 		self.matrix = matrix
 
 	# check corners and edges
@@ -24,7 +23,6 @@ class BFS:
 		queue.appendleft((source_i, source_j))
 
 		self.visited[source_i][source_j] = True
-		self.distance[source_i][source_j] = 0
 
 		while queue:
 			first, second = queue.pop()
@@ -39,7 +37,6 @@ class BFS:
 				if self.is_valid(child_i, child_j) and not self.visited[child_i][child_j]:
 					queue.appendleft((child_i, child_j))
 					self.visited[child_i][child_j] = True
-					self.distance[child_i][child_j] = self.distance[first][second] + 1
 
 
 '''
