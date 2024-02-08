@@ -1,3 +1,5 @@
+# O(mn) time and space
+
 from collections import deque
 
 class Solution:
