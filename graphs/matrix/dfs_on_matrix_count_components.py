@@ -1,20 +1,17 @@
 class DFS:
-	def __init__(self, matrix, MAX_ROW=20, MAX_COL=20):
-		self.MAX_ROW = MAX_ROW
-		self.MAX_COL = MAX_COL
+	def __init__(self, matrix):		
+		self.rows = len(matrix)
+		self.cols = len(matrix[0])
+		self.visited = [ [False] * self.cols for _ in range(self.rows) ]
+		self.DIRECTIONS = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 		self.matrix = matrix
-		self.length_x = len(self.matrix)
-		self.length_y = len(self.matrix[0])
-		self.visited = [ [False for _ in range(MAX_ROW)] for _ in range(MAX_COL) ]
-		self.DIRECTIONS = [(0, 1), (0, -1), (1, 0), (-1, 0)]		
 
 	def is_valid(self, child_i, child_j):
-		return child_i >= 0 and child_i < self.length_x and child_j >= 0 and child_j < self.length_y
+		return child_i >= 0 and child_i < self.rows and child_j >= 0 and child_j < self.cols
 
 	def dfs(self, source_i, source_j):
 		## Perform your task here
 		#print(f"({source_i}, {source_j})")
-		#print(self.matrix[source_i][source_j])
 
 		self.visited[source_i][source_j] = True
 
@@ -27,8 +24,8 @@ class DFS:
 
 	def count_components(self):
 		num_components = 0
-		for row in range(self.length_x):
-			for col in range(self.length_y):				
+		for row in range(self.rows):
+			for col in range(self.cols):				
 				if not self.visited[row][col] and self.matrix[row][col] != '#':
 					self.dfs(row, col)
 					num_components += 1
