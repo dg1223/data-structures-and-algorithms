@@ -19,15 +19,28 @@ class DFS:
 			child_i = source_i + direction[0]
 			child_j = source_j + direction[1]
 
-			if self.is_valid(child_i, child_j) and not self.visited[child_i][child_j] and self.matrix[child_i][child_j] != '#':
+			'''
+			if you need to avoid specific cells (e.g. wall or water),
+			make sure you add the condition here as well as below				
+			'''
+			if self.is_valid(child_i, child_j) \
+				and not self.visited[child_i][child_j] \
+				and self.matrix[child_i][child_j] != '#':
 				self.dfs(child_i, child_j)
 
 	def count_components(self):
+		# initialize the variable here that you need to return as answer
 		num_components = 0
 		for row in range(self.rows):
-			for col in range(self.cols):				
+			for col in range(self.cols):
+				'''
+				if you need to avoid specific cells (e.g. wall or water),
+				make sure you add the condition here as well as above
+				'''
 				if not self.visited[row][col] and self.matrix[row][col] != '#':
+					# if there's a bool flag, initialize it here before calling DFS
 					self.dfs(row, col)
+					# anything you need to count goes after returning from DFS
 					num_components += 1
 
 		return num_components
