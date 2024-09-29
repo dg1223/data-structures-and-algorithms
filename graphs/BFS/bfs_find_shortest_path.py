@@ -34,6 +34,7 @@ class BFS:
         # include the source vertex
         path.append(start)
 
+        # reverse the array to get from start to finish
         path = path[::-1]
 
         for vertex in path:
