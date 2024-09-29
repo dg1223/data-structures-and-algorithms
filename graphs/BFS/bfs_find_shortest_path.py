@@ -2,7 +2,6 @@ from collections import deque
 
 class BFS:
     def __init__(self, graph):
-        length = len(graph)
         self.parent_array = {}
         self.visited = set()
         self.graph = graph
