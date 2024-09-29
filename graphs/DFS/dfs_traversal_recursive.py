@@ -9,11 +9,11 @@ def dfs(graph, start, visited=None):
     print(start)
 
     visited.add(start)
-    current_root = graph[start]
+    neighbours = graph[start]
 
-    for child in current_root:
-        if child not in visited:
-            dfs(graph, child, visited)
+    for neighbour in neighbours:
+        if neighbour not in visited:
+            dfs(graph, neighbour, visited)
 
 '''
 			A

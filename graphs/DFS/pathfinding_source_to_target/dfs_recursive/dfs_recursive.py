@@ -10,9 +10,9 @@ def dfs(graph, start, destination, visited=None):
     if start == destination:
         return visited
     
-    current_root = graph[start]
+    neighbours = graph[start]
     
-    for neighbour in current_root:
+    for neighbour in neighbours:
         if neighbour not in visited:
             path = dfs(graph, neighbour, destination, visited)
             if path:
