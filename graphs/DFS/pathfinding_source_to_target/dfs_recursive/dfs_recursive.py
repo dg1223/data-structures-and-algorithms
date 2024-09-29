@@ -1,14 +1,18 @@
 # pre-order traversal
-def dfs(graph, source, destination, visited=None):
+def dfs(graph, start, destination, visited=None):
+    # we can't initialize a set because we need to return
+    # the visited vertices as the path
     if not visited:
         visited = []
 
-    visited = visited + [source]
+    visited = visited + [start]
     
-    if source == destination:
+    if start == destination:
         return visited
     
-    for neighbour in graph[source]:
+    current_root = graph[start]
+    
+    for neighbour in current_root:
         if neighbour not in visited:
             path = dfs(graph, neighbour, destination, visited)
             if path:

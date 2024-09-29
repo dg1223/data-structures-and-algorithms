@@ -9,9 +9,9 @@ def dfs(graph, start, visited=None):
     print(start)
 
     visited.add(start)
-    parent = graph[start]
+    current_root = graph[start]
 
-    for child in parent:
+    for child in current_root:
         if child not in visited:
             dfs(graph, child, visited)
 
