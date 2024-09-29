@@ -7,7 +7,7 @@ class BFS:
         self.graph = graph
 
 
-    def bfs(self, start, target):    
+    def bfs(self, start):    
         queue = deque()
 
         queue.appendleft(start)
@@ -23,7 +23,7 @@ class BFS:
 
     def print_shortest_path(self, start, target):
         # run BFS to populate parent_array
-        self.bfs(start, target)
+        self.bfs(start)
 
         path = []
         while target != start:
