@@ -31,19 +31,32 @@ class BST:
 	def get_node_by_value(self, value):
 		if value == self.value:
 			return self
+		# if left child exists and 
+  		# search value < current node's value
 		elif self.left and value < self.value:
 			self.left.get_node_by_value(value)
 		elif self.right and value > self.value:
 			self.right.get_node_by_value(value)
 
-	def traverse_dfs_inorder(self):
+	def dfs_inorder_traversal(self):
+		# traversing left will also print the root node upon return
 		if self.left:
-			self.left.traverse_dfs_inorder()
+			self.left.dfs_inorder_traversal()
+   
 		print(f"Depth = {self.depth}, Value = {self.value}")
+  
 		if self.right:
-			self.right.traverse_dfs_inorder()
+			self.right.dfs_inorder_traversal()
 
 # Test
+# 	   48
+# 	  /  \
+# 	24    55
+# 	  \      \
+# 	  26     56
+# 	    \        \
+# 	    38       74
+
 tree = BST(48)
 tree.insert_value(24)
 tree.insert_value(55)
@@ -53,4 +66,4 @@ tree.insert_value(56)
 tree.insert_value(74)
 
 # Print depth-first traversal:
-tree.traverse_dfs_inorder()
+tree.dfs_inorder_traversal()

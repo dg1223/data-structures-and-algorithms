@@ -8,18 +8,18 @@ class BFS:
 	def bfs(self, start_node, target):
 		print(f"Visiting {start_node.value}")
 		'''
-        The deque structure is basically a (doubly-linked)
-        list. We need to keep track of each path separately. 
-        For BFS, a (frontier) queue does the job. So, we 
-        need each queue to be a list so that we can access
-        individial nodes from any list. As a result, the 
-        frontier queue becomes a 2-D list or array.
-        On the contrary, the data structure to hold the tree  
-        is different for tree traversal algos where we 
-        initialize the tree as a graph using adjacency lists. 
-        We also don't need to store any path for traversal 
-        algos. So, we only need a 1-D list/array as we don't 
-        need to hold additional lists.		
+        Deque is a doubly-linked list. 
+        
+        We need to keep track of each path separately. 
+        In BFS, we do this using a queue that holds all the 
+        paths as separate lists.
+        
+        On the other hand, the data structure to hold a tree  
+        for tree traversal algorithms is different. For 
+        traversal, we initialize the tree as a graph using 
+        adjacency lists. Since we are only traversing, we 
+        don't need to store any path. So, we only need a 
+        1-D list/array.		
         '''
 		path = [start_node]
 
@@ -34,13 +34,14 @@ class BFS:
         deque, it returns individual item (node object in our 
         case) which is not iterable when we do current_path[-1]
         Initializing an empty deque first and then appending 
-        start appends the list [start] to the deque which 
+        'start' appends the list [start] to the deque which 
         remains iterable when popped later.
         '''
         #frontier = deque(path)
 		frontier = deque()
 		frontier.append(path)
 
+		# while a path still exists in the queue
 		while frontier:
 			current_path = frontier.pop()
 			current_node = current_path[-1]

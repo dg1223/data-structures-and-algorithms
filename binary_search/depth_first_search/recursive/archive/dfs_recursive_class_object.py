@@ -13,7 +13,7 @@ class DFS:
 		If we do path.append(start) or path += [start],
 		every new path will be added to the previously
 		found path. As a result, we won't be able to 
-		track distinct paths of each child.
+		track distinct paths for each child.
 		'''
 		path = path + [start]
 
