@@ -2,15 +2,16 @@
 O(V+E) time, O(V) space
 '''
 
-def dfs(graph, source, visited=None):
+def dfs(graph, start, visited=None):
     if not visited:
         visited = set()
 
-    print(source)
+    print(start)
 
-    visited.add(source)
+    visited.add(start)
+    parent = graph[start]
 
-    for child in graph[source]:
+    for child in parent:
         if child not in visited:
             dfs(graph, child, visited)
 
