@@ -1,63 +1,63 @@
 class MinHeap:
-    def __init__(self, heap_list=None):
-        self.heap_list = heap_list
-
-        if not heap_list:
-            self.heap_list = []
+    def __init__(self, heap=None):
+        if not heap:
+            self.heap = []
             self.count = 0
         else:
-            self.count = len(self.heap_list) - 1
-
+            self.heap = heap
+            self.count = len(heap) - 1
+            
     def parent_index(self, index):
         return index // 2
-
+    
     def left_child_index(self, index):
         return index * 2
-
+    
     def right_child_index(self, index):
-        return (index * 2) + 1
-
-    def add(self, element):
+        return (index * 2) +  1
+    
+    def add_item(self, item):
         '''
         increment count
-        add element to heap list
-        reorder the heap
+        append item
+        heapify up
         '''
         self.count += 1
-        print("Adding {0} to {1}\n".format(element, self.heap_list))
-        self.heap_list.append(element)
+        self.heap.append(item)
         self.heapify_up()
-
+        
     def heapify_up(self):
-        print("Heapifying up")
-        # the element that was added is the last element
-        index = self.count
-        parent_index = self.parent_index(index)
-
-        while parent_index >= 0: # index 0 has None
-            parent = self.heap_list[parent_index]
-            child = self.heap_list[index]
+        cur_idx = self.count
+        parent_idx = self.parent_index(cur_idx)
+        
+        # heapify up until root node is reached
+        while parent_idx > 0:
+            parent = self.heap[parent_idx]
+            child = self.heap[cur_idx]
+            
+            # swap parent<>child
             if parent > child:
-                print(f"swapping {parent} with {child}")
-                self.heap_list[parent_index] = child
-                self.heap_list[index] = parent
-                print(f"current heap list: {self.heap_list}\n")
-                index = parent_index
-                parent_index = self.parent_index(index)
+                self.heap[parent_idx] = child
+                self.heap[cur_idx] = parent                
+                # Now, we move further up the heap
+                cur_idx = parent_idx
+                parent_idx = self.parent_index(cur_idx)
             else:
-                break            
-        print("HEAP RESTORED! {0}".format(self.heap_list))
-
+                break
+            
 # test
-heap_list = [10, 13, 21, 22, 23, 61, 99]
-min_heap = MinHeap(heap_list)
-print(f"initial heap list: {min_heap.heap_list}")
+heap = [10, 13, 21, 22, 23, 61, 99]
+min_heap = MinHeap(heap)
+print(f"initial heap list: {min_heap.heap}")
 print(f"intial count = {min_heap.count}\n")
 
-#print("the parent index of 4 is:")
-#print(max_heap.parent_index(4))
+print("the parent index of 4 is:")
+print(min_heap.parent_index(4))
 
-#print("the left child index of 3 is:")
-#print(max_heap.left_child_index(3))
+print("the left child index of 3 is:")
+print(min_heap.left_child_index(3))
 
-min_heap.add(5)
+min_heap.add_item(5)
+print()
+print(f"current heap list: {min_heap.heap}")
+print(f"current count = {min_heap.count}\n")
